@@ -2,20 +2,31 @@
   p, h1, h2, h3, dd, figcaption { overflow-wrap: normal; word-break: normal; hyphens: none; }
   .project-meta dd { overflow-wrap: normal !important; word-break: normal; }
 
-  .hero__copy { padding-top: 52px; padding-bottom: 30px; }
-  .hero .eyebrow { margin-bottom: 30px; font-size: 13px; line-height: 1.1; }
+  /* Mobile hero: stronger hierarchy, same grid as the rest of the case. */
+  .hero__copy {
+    padding-top: 52px !important;
+    padding-right: 20px !important;
+    padding-bottom: 30px !important;
+    padding-left: 20px !important;
+  }
+  .hero .eyebrow {
+    margin-bottom: 28px !important;
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+  }
   .hero h1 {
+    width: 100%;
     max-width: 100%;
     margin: 0;
-    font-size: clamp(52px, 14vw, 64px) !important;
+    font-size: clamp(50px, 13.5vw, 58px) !important;
     line-height: .82 !important;
     letter-spacing: -.045em !important;
   }
   .hero__lead {
-    max-width: 340px;
-    margin: 58px 0 46px;
-    font: 300 24px/1.05 var(--f-lead);
-    letter-spacing: 0;
+    max-width: 330px !important;
+    margin: 54px 0 44px !important;
+    font: 300 20px/1.08 var(--f-lead) !important;
+    letter-spacing: 0 !important;
   }
 
   .thesis { min-height: 0; justify-content: flex-start; padding: 72px 20px 88px; }
@@ -35,9 +46,13 @@
   .spread-feature figure { order: 2; width: 100%; margin: 0; border-right: 0; border-top: 1px solid var(--line-d); }
   .spread-feature figure img { width: 100%; height: 64vw; object-fit: cover; object-position: center; }
 
+  /* Prototype: headline and both copy levels share exactly the same left edge. */
   .prototype { padding: 64px 0 0; }
-  .prototype__intro { padding-left: 20px; padding-right: 20px; }
-  .prototype__lead { padding-left: 0 !important; padding-right: 0 !important; }
+  .prototype__intro,
+  .prototype__lead {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   .prototype__intro .eyebrow { margin-bottom: 18px; }
   .prototype__intro h2 { max-width: 340px; margin: 0 0 36px; font-size: 48px; line-height: .9; letter-spacing: -.035em; }
   .prototype__lead p:first-child,
