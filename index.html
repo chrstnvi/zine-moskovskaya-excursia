@@ -8,6 +8,99 @@
   <title>Московская экскурсия — экспериментальный зин</title>
   <link rel="stylesheet" href="./styles.css"/>
   <script src="./script.js" defer></script>
+
+  <style id="result-v3-styles">
+    /* Result 07: isolated layout matching supplied Frame 75. */
+    .result-v3 { background: var(--ink); }
+    .result-v3__top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      width: 100%;
+      background: var(--ink);
+    }
+    .result-v3__card {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      color: var(--chalk);
+      background: var(--ink);
+    }
+    .result-v3__card > img,
+    .result-v3__pamela-media > img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: none;
+    }
+    .result-v3__pamela-media { position: relative; }
+    .result-v3__copy {
+      position: absolute;
+      z-index: 2;
+      top: 7.5%;
+      left: 8.5%;
+      width: 66%;
+      max-width: 620px;
+      margin: 0;
+      color: var(--chalk);
+      font-size: var(--bodyl);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .result-v3__card figcaption {
+      position: static;
+      width: 100%;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--chalk);
+      background: var(--ink);
+      border-top: 1px solid var(--line-d);
+      border-bottom: 1px solid var(--line-d);
+      font: 600 var(--ui)/1.1 var(--f);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .result-v3__card--pamela figcaption { border-left: 1px solid var(--line-d); }
+    .result-v3__card--accordion {
+      width: 100%;
+      margin-top: clamp(56px, 4vw, 78px);
+    }
+    .result-v3__accordion-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3.08 / 1;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .result-v3__accordion-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+    .result-v3__card--accordion figcaption { padding-left: var(--pad); padding-right: var(--pad); }
+
+    @media (max-width: 900px) {
+      .result-v3__top { grid-template-columns: 1fr; }
+      .result-v3__card--pamela figcaption { border-left: 0; }
+      .result-v3__copy {
+        position: static;
+        width: auto;
+        max-width: none;
+        padding: 36px var(--pad) 28px;
+        font-size: var(--bodyl);
+      }
+      .result-v3__pamela-media { display: flex; flex-direction: column; }
+      .result-v3__pamela-media .result-v3__copy { order: -1; }
+      .result-v3__card--accordion { margin-top: 48px; }
+      .result-v3__accordion-media { aspect-ratio: 1.75 / 1; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
@@ -162,15 +255,24 @@
       </div>
     </section>
 
-    <section class="result chapter" id="result" data-step="07">
-      <div class="result-proof">
-        <figure class="result-shot result-shot--oni"><img src="./assets/05-slits-oni.png" alt="Разворот зина с повторяющимися словами ОНИ и прорезями" loading="lazy"/><figcaption>ОНИ ИМ ОНИ · 01</figcaption></figure>
-        <div class="result-proof__right">
-          <p class="result-proof__copy">Прототип быстро показал, что работает: щель правда заставляет лезть внутрь, «ОНИ» начинают давить, а гармошка просится наружу. И что ещё надо чинить: прорези, сборку и настоящую фольгу</p>
-          <figure class="result-shot result-shot--portrait"><img src="./assets/06-pamela-portrait.webp" alt="Финальный разворот зина с портретом Памелы Трэверс" loading="lazy"/><figcaption>Мир глазами Памелы: серый и красный становятся цветами её восприятия · 02</figcaption></figure>
-        </div>
+    <section class="result chapter result-v3" id="result" data-step="07">
+      <div class="result-v3__top">
+        <figure class="result-v3__card result-v3__card--oni">
+          <img src="./assets/05-slits-oni.png" alt="Разворот зина с повторяющимися словами ОНИ и прорезями" loading="lazy"/>
+          <figcaption>ОНИ ИМ ОНИ · 01</figcaption>
+        </figure>
+        <figure class="result-v3__card result-v3__card--pamela">
+          <div class="result-v3__pamela-media">
+            <img src="./assets/06-pamela-portrait.webp" alt="Финальный разворот зина с портретом Памелы Трэверс" loading="lazy"/>
+            <p class="result-v3__copy">Прототип быстро показал, что работает: щель правда заставляет лезть внутрь, «ОНИ» начинают давить, а гармошка просится наружу. И что ещё надо чинить: прорези, сборку и настоящую фольгу</p>
+          </div>
+          <figcaption>Мир глазами Памелы: серый и красный становятся цветами её восприятия · 02</figcaption>
+        </figure>
       </div>
-      <figure class="result-shot result-shot--accordion"><img src="./assets/02-accordion.webp" alt="Зин с полностью раскрытой красной бумажной гармошкой" loading="lazy"/><figcaption>Плакат выходит за пределы зина · 03</figcaption></figure>
+      <figure class="result-v3__card result-v3__card--accordion">
+        <div class="result-v3__accordion-media"><img src="./assets/02-accordion.webp" alt="Зин с полностью раскрытой красной бумажной гармошкой" loading="lazy"/></div>
+        <figcaption>Плакат выходит за пределы зина · 03</figcaption>
+      </figure>
       <div class="ending">
         <p class="ending__label">Итог</p>
         <blockquote>Памела по Москве ходила — и читателю придётся.</blockquote>
