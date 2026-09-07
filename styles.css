@@ -154,3 +154,310 @@
     text-transform: uppercase;
   }
 }
+
+/* Visual system — layout synced to Figma frame 408:5. */
+.palette {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+.palette > header {
+  order: 1;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 92px 98px 56px;
+  overflow: hidden;
+}
+.palette > header .eyebrow {
+  margin: 0;
+}
+.palette > header h2 {
+  width: min(1500px, 100%);
+  max-width: 1500px;
+  margin: 0;
+  font-family: var(--f);
+  font-size: 110px;
+  font-weight: 700;
+  line-height: .86;
+  letter-spacing: -.03em;
+}
+.palette > header h2 span {
+  display: inline;
+}
+.palette > header h2 span:not(:last-child)::after {
+  content: " ";
+}
+.palette > header h2 span:nth-child(3) {
+  display: block;
+}
+
+.palette__row {
+  width: 100%;
+  height: 190px;
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 60px 560px minmax(0, 880px);
+  gap: 30px;
+  align-items: center;
+  padding: 24px;
+  border: 0;
+}
+.palette__row--gray { order: 2; background: var(--paper); }
+.palette__row--red { order: 3; background: var(--red); }
+.palette__row > span {
+  width: 60px;
+  font: 700 16px/1.1 var(--f);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.palette__row h3 {
+  width: 560px;
+  margin: 0;
+  font-family: var(--f);
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+.palette__row p {
+  width: min(880px, 100%);
+  max-width: 880px;
+  margin: 0;
+  font-family: var(--f);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Reuse the existing gold proof markup as the third color row. */
+.palette__gold {
+  order: 4;
+  display: block;
+  width: 100%;
+  height: 190px;
+  margin: 0;
+  color: var(--ink);
+  background: var(--gold);
+  border: 0;
+}
+.palette__gold > div {
+  width: 100%;
+  height: 190px;
+  display: grid;
+  grid-template-columns: 60px 560px minmax(0, 880px);
+  gap: 30px;
+  align-items: center;
+  padding: 24px;
+  border: 0;
+}
+.palette__gold figure {
+  display: none;
+}
+.palette__gold > div > span,
+.palette__gold h3,
+.palette__gold > div > p {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 0;
+  line-height: 0;
+}
+.palette__gold > div > span::after {
+  content: "03";
+  display: block;
+  width: 60px;
+  font: 700 16px/1.1 var(--f);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.palette__gold h3 {
+  width: 560px;
+  max-width: none;
+}
+.palette__gold h3::after {
+  content: "ЗОЛОТО";
+  display: block;
+  font-family: var(--f);
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+.palette__gold > div > p {
+  width: min(880px, 100%);
+  max-width: 880px;
+}
+.palette__gold > div > p::after {
+  content: "Одно исключение из двухцветной системы — золотая фольга там, где купола вспыхивают в солнечных лучах";
+  display: block;
+  font-family: var(--f);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Typography becomes its own black field below the three color rows. */
+.palette__row--type {
+  order: 5;
+  height: auto;
+  min-height: 378px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto 250px;
+  column-gap: 80px;
+  row-gap: 34px;
+  align-items: start;
+  padding: 76px 98px 52px;
+  color: var(--chalk);
+  background: var(--ink);
+  border: 0;
+}
+.palette__row--type::before {
+  content: "ТИПОГРАФИКА";
+  grid-column: 1 / -1;
+  grid-row: 1;
+  color: var(--red);
+  font: 700 16px/1.1 var(--f);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.palette__row--type > span {
+  display: none;
+}
+.palette__row--type h3 {
+  grid-column: 1;
+  grid-row: 2;
+  width: auto;
+  color: var(--chalk);
+  font-family: var(--f);
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+  text-transform: none;
+}
+.palette__row--type .palette__type-copy {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px;
+  min-width: 0;
+  height: 250px;
+}
+.palette__row--type .palette__type-copy p {
+  width: min(786px, 100%);
+  max-width: 786px;
+  color: var(--chalk);
+  font-family: var(--f);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.palette__row--type .palette__typeface-ref {
+  align-self: flex-start;
+  margin: 0;
+  color: rgba(243,241,236,.66);
+  font-family: var(--f);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+
+/* The old gold feature used to create a huge pause here; it is now a compact color row. */
+.palette + .slogan {
+  padding-top: clamp(90px, 6vw, 115px);
+}
+
+@media (max-width: 900px) {
+  .palette > header {
+    height: auto;
+    min-height: 360px;
+    padding: 72px var(--pad) 64px;
+  }
+  .palette > header h2 {
+    font-size: clamp(58px, 12vw, 84px);
+  }
+  .palette > header h2 span,
+  .palette > header h2 span:nth-child(3) {
+    display: block;
+  }
+  .palette > header h2 span:not(:last-child)::after {
+    content: none;
+  }
+
+  .palette__row,
+  .palette__gold > div {
+    height: auto;
+    min-height: 190px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 14px 18px;
+    padding: 24px var(--pad);
+  }
+  .palette__row > span,
+  .palette__gold > div > span::after {
+    width: 44px;
+  }
+  .palette__row h3,
+  .palette__gold h3 {
+    width: auto;
+  }
+  .palette__row h3,
+  .palette__gold h3::after {
+    font-size: clamp(48px, 13vw, 72px);
+  }
+  .palette__row p,
+  .palette__gold > div > p {
+    grid-column: 2;
+    width: auto;
+    max-width: none;
+  }
+  .palette__row p,
+  .palette__gold > div > p::after {
+    font-size: 20px;
+    line-height: 1.05;
+  }
+  .palette__gold {
+    height: auto;
+  }
+
+  .palette__row--type {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 30px;
+    padding: 64px var(--pad) 72px;
+  }
+  .palette__row--type::before {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .palette__row--type h3 {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: clamp(58px, 14vw, 82px);
+  }
+  .palette__row--type .palette__type-copy {
+    grid-column: 1;
+    grid-row: 3;
+    height: auto;
+  }
+  .palette__row--type .palette__type-copy p {
+    font-size: 20px;
+    line-height: 1.05;
+  }
+}
