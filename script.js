@@ -4,12 +4,12 @@
   const qaStyles = document.createElement('style');
   qaStyles.id = 'qa-runtime-styles';
   qaStyles.textContent = `
-    /* Result 07 — crop the exported black canvases so the image sits halfway
-       between the explanatory copy and the shared caption rail. */
+    /* Result 07 — keep a little more black breathing room between the spreads
+       and their explanatory/caption text. */
     @media (min-width: 901px) {
       .result-v3__card--oni > img,
       .result-v3__pamela-media > img {
-        height: clamp(480px, 43vw, 825px) !important;
+        height: clamp(500px, 44.5vw, 855px) !important;
         object-fit: cover !important;
         object-position: top center !important;
       }
