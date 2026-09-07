@@ -200,12 +200,42 @@ function stopDragging() { dragging = false; scroller?.classList.remove("is-dragg
 scroller?.addEventListener("pointerup",stopDragging);
 scroller?.addEventListener("pointercancel",stopDragging);
 
-const excludedFromNbsp = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA"]);
-const shortWords = /(^|[\s(«„"—–-])((?:а|и|но|да|или|либо|в|во|на|к|ко|с|со|у|о|об|обо|от|до|по|за|из|изо|под|над|при|без|для|про|через|перед|между))\s+(?=\S)/giu;
+// Typographic wrapping: headings balance; running copy avoids awkward final lines.
+const typographyStyle = document.createElement("style");
+typographyStyle.textContent = `
+  h1, h2, h3, blockquote, .large-copy, .hero__lead, .thesis__lead, .ending__copy { text-wrap: balance; }
+  p, dd, figcaption, .analysis__note, .opening__source, .palette__type-copy { text-wrap: pretty; }
+`;
+document.head.appendChild(typographyStyle);
+
+const excludedFromNbsp = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "PRE", "CODE", "SVG"]);
+const shortWords = /(^|[\s(«„"—–-])((?:а|и|но|да|или|либо|в|во|на|к|ко|с|со|у|о|об|обо|от|до|по|за|из|изо|под|над|при|без|для|про|через|перед|между|не|ни|же|бы|ли))\s+(?=\S)/giu;
+const units = /(\d+)\s+(г\.|гг\.|стр\.|с\.|№)(?=\s|$|[),.;:!?])/giu;
+const protectedPhrases = [
+  ["Памела Трэверс", "Памела\u00A0Трэверс"],
+  ["Роман Горницкий", "Роман\u00A0Горницкий"],
+  ["Roman Gornitsky", "Roman\u00A0Gornitsky"],
+  ["The Temporary State", "The\u00A0Temporary\u00A0State"],
+  ["DesignWorkout · Do you read me?", "DesignWorkout\u00A0·\u00A0Do\u00A0you\u00A0read\u00A0me?"]
+];
 
 function fixTextNode(node) {
-  if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue || excludedFromNbsp.has(node.parentElement?.tagName)) return;
-  node.nodeValue = node.nodeValue.replace(shortWords, (_, prefix, word) => `${prefix}${word}\u00A0`);
+  if (
+    node.nodeType !== Node.TEXT_NODE ||
+    !node.nodeValue ||
+    excludedFromNbsp.has(node.parentElement?.tagName)
+  ) return;
+
+  let value = node.nodeValue;
+  value = value.replace(shortWords, (_, prefix, word) => `${prefix}${word}\u00A0`);
+  value = value.replace(units, (_, number, unit) => `${number}\u00A0${unit}`);
+  value = value.replace(/\s+\/\s+/g, "\u00A0/\u00A0");
+
+  for (const [phrase, replacement] of protectedPhrases) {
+    value = value.split(phrase).join(replacement);
+  }
+
+  node.nodeValue = value;
 }
 
 function fixTree(node) {
