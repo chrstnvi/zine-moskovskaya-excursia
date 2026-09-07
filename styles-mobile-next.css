@@ -2,6 +2,22 @@
   p, h1, h2, h3, dd, figcaption { overflow-wrap: normal; word-break: normal; hyphens: none; }
   .project-meta dd { overflow-wrap: normal !important; word-break: normal; }
 
+  .hero__copy { padding-top: 52px; padding-bottom: 30px; }
+  .hero .eyebrow { margin-bottom: 30px; font-size: 13px; line-height: 1.1; }
+  .hero h1 {
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(52px, 14vw, 64px) !important;
+    line-height: .82 !important;
+    letter-spacing: -.045em !important;
+  }
+  .hero__lead {
+    max-width: 340px;
+    margin: 58px 0 46px;
+    font: 300 24px/1.05 var(--f-lead);
+    letter-spacing: 0;
+  }
+
   .thesis { min-height: 0; justify-content: flex-start; padding: 72px 20px 88px; }
   .thesis .eyebrow { margin-bottom: 18px; }
   .thesis h2 { max-width: 340px; margin: 0 0 38px; font-size: 48px; line-height: .88; letter-spacing: -.035em; }
@@ -20,9 +36,17 @@
   .spread-feature figure img { width: 100%; height: 64vw; object-fit: cover; object-position: center; }
 
   .prototype { padding: 64px 0 0; }
-  .prototype__intro, .prototype__lead { padding-left: 20px; padding-right: 20px; }
+  .prototype__intro { padding-left: 20px; padding-right: 20px; }
+  .prototype__lead { padding-left: 0 !important; padding-right: 0 !important; }
   .prototype__intro .eyebrow { margin-bottom: 18px; }
   .prototype__intro h2 { max-width: 340px; margin: 0 0 36px; font-size: 48px; line-height: .9; letter-spacing: -.035em; }
+  .prototype__lead p:first-child,
+  .prototype__lead p:last-child {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
   .prototype__lead p:first-child { max-width: 360px; font: 300 24px/1.06 var(--f-lead); letter-spacing: 0; }
   .prototype__lead p:last-child { max-width: 360px; margin-top: 28px; padding-bottom: 48px; font-size: 17px; line-height: 1.16; }
   .prototype-photo, .prototype-photo:first-of-type { margin-top: 0 !important; }
