@@ -214,11 +214,41 @@ footer { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(340px, 
 
 @media (max-width: 900px) {
   :root { --display: clamp(54px, 12vw, 84px); --chapter: clamp(52px, 11vw, 82px); --section: clamp(42px, 9vw, 66px); --item: clamp(34px, 8vw, 50px); --lead: clamp(27px, 5vw, 38px); --bodyl: 18px; --body: 15px; --meta: 13px; --ui: 12px; }
+  .route { display: none; }
+  main, footer { margin-right: 0; }
+  .topbar { padding-right: var(--pad); }
   .topbar__nav { display: none; }
-  .hero, .analysis, .opening, .spread-feature { grid-template-columns: 1fr; }
+  .hero, .opening, .spread-feature { grid-template-columns: 1fr; }
   .hero__visual { min-height: auto; border-left: 0; }
   .brief__days { grid-template-columns: 1fr; }
-  .analysis__copy { border-right: 0; }
+
+  .analysis { min-height: 0; display: flex; flex-direction: column; padding: 28px 20px 36px; background: var(--ink); }
+  .analysis__copy { display: flex; flex-direction: column; padding: 0; border-right: 0; }
+  .analysis__copy .eyebrow { order: 1; margin: 0 0 14px; font-size: 11px; line-height: 1.1; letter-spacing: .04em; }
+  .analysis__copy h2 { order: 2; max-width: 340px; margin: 0 0 10px; font-size: 50px; line-height: .88; letter-spacing: -.03em; }
+  .analysis__tabs { order: 3; width: calc(100vw - 40px); display: flex; overflow-x: auto; overflow-y: hidden; margin: 0; border: 0; scrollbar-width: none; overscroll-behavior-inline: contain; }
+  .analysis__tabs::-webkit-scrollbar { display: none; }
+  .analysis-tab { flex: 0 0 auto; width: auto; display: block; padding: 14px; border: 0; color: var(--line-d); font: 400 12px/1.1 var(--f); letter-spacing: .01em; white-space: nowrap; }
+  .analysis-tab:first-child { padding-left: 0; padding-right: 14px; }
+  .analysis-tab span { display: none; }
+  .analysis-tab.is-active, .analysis-tab.is-active:hover { color: var(--red); padding-left: 14px; font-weight: 600; }
+  .analysis-tab:first-child.is-active, .analysis-tab:first-child.is-active:hover { padding-left: 0; }
+  .analysis-tab:not(.is-active):hover { color: var(--chalk); padding-left: 14px; }
+  .analysis__note { order: 4; min-height: 0; max-width: none; margin: 0; padding: 18px 0 28px; color: rgba(243,241,236,.66); font-size: 17px; font-weight: 400; line-height: 1.18; letter-spacing: 0; }
+  .analysis__viewport { position: relative; display: block; min-height: 0; overflow: visible; padding: 0; background: var(--ink); }
+  .analysis__paper { position: relative; width: 100%; height: 234px; aspect-ratio: auto; overflow: hidden; margin: 0; padding: 14px 16px 13px; border-top: 1px solid var(--line-d); background: var(--ink); box-shadow: none; transform: none; }
+  .analysis__paper::after { content: ""; position: absolute; right: 0; bottom: 0; width: 74%; height: 90px; pointer-events: none; background: linear-gradient(90deg, rgba(9,9,9,0), rgba(9,9,9,.86) 72%, var(--ink)); }
+  .analysis-document, .analysis-document--extract { position: relative; inset: auto; width: 100%; height: 195px; overflow: hidden; color: rgba(243,241,236,.66); background: var(--ink); container-type: normal; }
+  .analysis-document.is-changing { transform: none; }
+  .analysis-document__body, .analysis-document--extract .analysis-document__body { position: static; width: 100%; height: auto; overflow: visible; color: rgba(243,241,236,.66); font-family: var(--f); font-size: 13px; font-weight: 400; line-height: 1.2; letter-spacing: 0; }
+  .analysis-document__body p { margin: 0 0 1em; }
+  .analysis-document__body p:first-child { font-size: 12px; font-weight: 600; line-height: 1.3; }
+  .analysis-document__gap { height: 1em; }
+  .analysis-document__cult { display: none; }
+  .analysis__counter { position: static; margin: 14px 0 0; color: var(--chalk); font-size: 0; }
+  .analysis__counter span { display: none; }
+  .analysis__counter::before { content: "ЧИТАТЬ ВЕСЬ ИСХОДНИК ↗"; font: 600 12px/14px var(--f); letter-spacing: .015em; }
+
   .route-map li { grid-template-columns: 40px 1fr; }
   .route-map li p { grid-column: 2; }
   .thesis__equation { grid-template-columns: 1fr; gap: 18px; }
