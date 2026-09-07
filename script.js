@@ -123,8 +123,20 @@ if (analysisPaper && analysisMount) {
   analysisMount.replaceWith(analysisDocument);
 }
 
+function collapseSource() {
+  const analysisSection = document.querySelector(".analysis");
+  const sourceToggle = document.querySelector(".analysis__counter");
+  const sourceToggleLabel = document.querySelector(".analysis__counter-action");
+  if (!analysisSection || !sourceToggle || !sourceToggleLabel) return;
+  analysisSection.classList.remove("is-expanded");
+  sourceToggle.setAttribute("aria-expanded", "false");
+  sourceToggle.setAttribute("aria-label", "Показать весь исходный текст");
+  sourceToggleLabel.textContent = "ЧИТАТЬ ВЕСЬ ИСХОДНИК ↗";
+}
+
 function activateTab(tab) {
   const index = analysisTabs.indexOf(tab);
+  collapseSource();
   analysisTabs.forEach((item) => {
     const selected = item === tab;
     item.classList.toggle("is-active",selected);
@@ -155,6 +167,20 @@ analysisTabs.forEach((tab) => {
   });
 });
 
+const sourceToggle = document.querySelector(".analysis__counter");
+const sourceToggleLabel = document.querySelector(".analysis__counter-action");
+const analysisSection = document.querySelector(".analysis");
+sourceToggle?.addEventListener("click", () => {
+  if (!window.matchMedia("(max-width: 900px)").matches || !analysisSection || !sourceToggleLabel) return;
+  const expanded = analysisSection.classList.toggle("is-expanded");
+  sourceToggle.setAttribute("aria-expanded", String(expanded));
+  sourceToggle.setAttribute("aria-label", expanded ? "Свернуть исходный текст" : "Показать весь исходный текст");
+  sourceToggleLabel.textContent = expanded ? "СВЕРНУТЬ ИСХОДНИК ↑" : "ЧИТАТЬ ВЕСЬ ИСХОДНИК ↗";
+});
+window.addEventListener("resize", () => {
+  if (!window.matchMedia("(max-width: 900px)").matches) collapseSource();
+});
+
 const scroller = document.querySelector(".slogan__scroller");
 let dragStart = 0;
 let scrollStart = 0;
@@ -173,3 +199,26 @@ scroller?.addEventListener("pointermove",(event) => {
 function stopDragging() { dragging = false; scroller?.classList.remove("is-dragging"); }
 scroller?.addEventListener("pointerup",stopDragging);
 scroller?.addEventListener("pointercancel",stopDragging);
+
+const excludedFromNbsp = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA"]);
+const shortWords = /(^|[\s(«„"—–-])((?:а|и|но|да|или|либо|в|во|на|к|ко|с|со|у|о|об|обо|от|до|по|за|из|изо|под|над|при|без|для|про|через|перед|между))\s+(?=\S)/giu;
+
+function fixTextNode(node) {
+  if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue || excludedFromNbsp.has(node.parentElement?.tagName)) return;
+  node.nodeValue = node.nodeValue.replace(shortWords, (_, prefix, word) => `${prefix}${word}\u00A0`);
+}
+
+function fixTree(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    fixTextNode(node);
+    return;
+  }
+  const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+  let current;
+  while ((current = walker.nextNode())) fixTextNode(current);
+}
+
+fixTree(document.body);
+new MutationObserver((mutations) => {
+  for (const mutation of mutations) mutation.addedNodes.forEach(fixTree);
+}).observe(document.body, { childList: true, subtree: true });
