@@ -152,13 +152,13 @@ main, footer { margin-right: 34px; }
 .palette__row > span, .palette__gold > div > span { margin: 0; font: 700 var(--meta)/1.1 var(--f); letter-spacing: .04em; text-transform: uppercase; }
 .palette__row h3, .palette__gold h3 { margin: 0; padding: 0; font-size: var(--item); line-height: 1; letter-spacing: -.05em; text-transform: uppercase; }
 .palette__row p, .palette__gold > div > p { align-self: end; max-width: 460px; margin: 0; padding: 0; font-size: clamp(16px, 1.05vw, 20px); font-weight: 300; line-height: 1.08; letter-spacing: 0; }
-.palette__row--type { grid-column: 1 / -1; width: 100%; min-height: clamp(320px, 19.6875vw, 378px); height: auto; display: grid; grid-template-columns: minmax(0, 820fr) minmax(0, 824fr); grid-template-rows: auto clamp(190px, 13.0208vw, 250px); column-gap: clamp(44px, 4.1667vw, 80px); row-gap: clamp(24px, 1.7708vw, 34px); align-items: start; padding: clamp(56px, 3.9583vw, 76px) var(--vs-x) 0; overflow: hidden; color: var(--ink); background: var(--canvas); border: 0; }
+.palette__row--type { grid-column: 1 / -1; width: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; column-gap: clamp(48px, 5vw, 96px); row-gap: clamp(42px, 3vw, 58px); align-items: start; padding: clamp(46px, 3.3vw, 64px) var(--vs-x) clamp(54px, 3.8vw, 74px); overflow: visible; color: var(--ink); background: var(--canvas); border: 0; }
 .palette__row--type::before { content: "ТИПОГРАФИКА"; grid-column: 1 / -1; grid-row: 1; color: var(--red); font: 700 var(--meta)/1.1 var(--f); letter-spacing: .04em; text-transform: uppercase; }
 .palette__row--type > span { display: none; }
 .palette__row--type h3 { grid-column: 1; grid-row: 2; margin: 0; font-size: var(--item); line-height: 1; letter-spacing: -.05em; text-transform: none; }
-.palette__row--type .palette__type-copy { grid-column: 2; grid-row: 2; align-self: start; display: flex; flex-direction: column; gap: clamp(20px, 1.4583vw, 28px); min-width: 0; height: auto; }
-.palette__row--type .palette__type-copy p { width: min(720px, 100%); margin: 0; font-size: clamp(16px, 1.05vw, 20px); font-weight: 300; line-height: 1.08; letter-spacing: 0; }
-.palette__row--type .palette__typeface-ref { align-self: flex-start; width: min(824px, 100%); margin: 0; color: rgba(9,9,9,.62); font-size: var(--body); font-weight: 400; line-height: 1.02; letter-spacing: .03em; text-decoration: none; }
+.palette__row--type .palette__type-copy { grid-column: 2; grid-row: 2; align-self: start; display: flex; flex-direction: column; gap: clamp(22px, 1.6vw, 30px); min-width: 0; width: 100%; }
+.palette__row--type .palette__type-copy p { align-self: flex-start; width: min(720px, 100%); max-width: none; margin: 0; padding: 0; font-size: clamp(16px, 1.05vw, 20px); font-weight: 300; line-height: 1.08; letter-spacing: 0; }
+.palette__row--type .palette__typeface-ref { align-self: flex-start; width: min(720px, 100%); margin: 0; color: rgba(9,9,9,.62); font-size: var(--body); font-weight: 400; line-height: 1.02; letter-spacing: .03em; text-decoration: none; }
 .palette + .slogan { padding-top: clamp(110px, 7vw, 140px); }
 
 .slogan { padding: clamp(90px, 6vw, 115px) 0 0; background: var(--ink); }
@@ -336,12 +336,12 @@ footer { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(340px, 
   .palette__row h3, .palette__gold h3 { grid-column: 2; font-size: var(--section); }
   .palette__row p, .palette__gold > div > p { grid-column: 2; align-self: start; font-size: 20px; line-height: 1.05; }
   .palette__gold { height: auto; }
-  .palette__row--type { order: 5; min-height: 0; grid-template-columns: 1fr; grid-template-rows: auto auto auto; row-gap: 30px; padding: 64px var(--vs-x) 72px; overflow: visible; }
+  .palette__row--type { order: 5; min-height: 0; grid-template-columns: 1fr; grid-template-rows: auto auto auto; row-gap: 24px; padding: 54px var(--vs-x) 64px; overflow: visible; }
   .palette__row--type::before { grid-column: 1; grid-row: 1; }
   .palette__row--type h3 { grid-column: 1; grid-row: 2; font-size: var(--section); }
-  .palette__row--type .palette__type-copy { grid-column: 1; grid-row: 3; height: auto; gap: 24px; }
-  .palette__row--type .palette__type-copy p { font-size: 20px; line-height: 1.05; }
-  .palette__row--type .palette__typeface-ref { font-size: 15px; }
+  .palette__row--type .palette__type-copy { grid-column: 1; grid-row: 3; width: 100%; height: auto; gap: 22px; }
+  .palette__row--type .palette__type-copy p { align-self: flex-start; width: 100%; max-width: none; font-size: 20px; line-height: 1.05; }
+  .palette__row--type .palette__typeface-ref { width: 100%; font-size: 15px; }
 
   .slogan { padding-top: 110px; }
   .slogan header { grid-template-columns: 1fr; }
