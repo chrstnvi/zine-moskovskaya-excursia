@@ -390,3 +390,156 @@
     margin-top: 48px;
   }
 }
+
+/* Result section — rebuilt to match the supplied Frame 75 composition. */
+.result-proof {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.07fr);
+  column-gap: clamp(56px, 5vw, 96px);
+  align-items: end;
+  width: 100%;
+  padding: clamp(76px, 5.5vw, 108px) var(--pad) 44px;
+  border-bottom: 0;
+  overflow: visible;
+}
+.result-proof .result-shot,
+.result-proof__right,
+.result-shot--oni,
+.result-shot--portrait {
+  position: static;
+  width: auto;
+  height: auto;
+  max-width: none;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+.result-shot--oni {
+  align-self: end;
+  margin: 0;
+  padding: clamp(92px, 7vw, 132px) clamp(18px, 1.8vw, 34px) 0 0;
+}
+.result-shot--oni img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.84 / 1;
+  object-fit: cover;
+  object-position: center 61%;
+}
+.result-proof__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.result-proof__copy {
+  position: static;
+  width: min(100%, 650px);
+  max-width: 650px;
+  margin: 0 0 clamp(54px, 4vw, 76px);
+  color: var(--chalk);
+  font-size: var(--bodyl);
+  line-height: 1;
+  letter-spacing: 0;
+}
+.result-shot--portrait {
+  margin: 0;
+}
+.result-shot--portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.84 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* One continuous caption rail under the two upper images. */
+.result-proof {
+  padding-bottom: 58px;
+}
+.result-proof .result-shot figcaption {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 14px;
+  color: var(--chalk);
+  background: var(--ink);
+  border-top: 1px solid var(--line-d);
+  border-bottom: 1px solid var(--line-d);
+  font: 600 var(--ui)/1.1 var(--f);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.result-shot--oni figcaption {
+  left: 0;
+  width: 50%;
+  border-right: 1px solid var(--line-d);
+}
+.result-shot--portrait figcaption {
+  left: 50%;
+  right: 0;
+  width: 50%;
+}
+
+/* Wide accordion is the second row, with its own generous black breathing room. */
+.result-shot--accordion {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: clamp(70px, 5vw, 96px) var(--pad) 0;
+  overflow: visible;
+  border-bottom: 0;
+  background: var(--ink);
+}
+.result-shot--accordion img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 593;
+  object-fit: cover;
+  object-position: center;
+}
+.result-shot--accordion figcaption {
+  position: static;
+  width: calc(100% + (var(--pad) * 2));
+  margin-left: calc(var(--pad) * -1);
+  margin-top: 0;
+  padding: 13px var(--pad);
+  color: var(--chalk);
+  background: var(--ink);
+  border-top: 1px solid var(--line-d);
+  border-bottom: 1px solid var(--line-d);
+}
+
+@media (max-width: 900px) {
+  .result-proof {
+    grid-template-columns: 1fr;
+    row-gap: 64px;
+    padding: 80px var(--pad) 0;
+  }
+  .result-shot--oni {
+    padding: 0;
+  }
+  .result-proof__copy {
+    margin-bottom: 36px;
+  }
+  .result-proof .result-shot figcaption {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding: 12px 14px;
+    border-right: 0;
+  }
+  .result-shot--portrait figcaption {
+    left: auto;
+    right: auto;
+  }
+  .result-shot--accordion {
+    padding-top: 72px;
+  }
+}
