@@ -1,16 +1,25 @@
 (() => {
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/svg+xml';
+  favicon.href = './favicon.svg?v=20260907-1';
+  document.head.appendChild(favicon);
+
   /* Small post-layout QA layer: it runs after the inline result styles, so these
      corrections win without re-introducing another stylesheet file. */
   const qaStyles = document.createElement('style');
   qaStyles.id = 'qa-runtime-styles';
   qaStyles.textContent = `
-    /* Result 07 — keep more black breathing room around the upper spreads. */
+    /* Result 07 — keep more black breathing room around the upper spreads and
+       pull the image pair slightly upward so it is visually centered between
+       the explanatory copy above and the shared caption rail below. */
     @media (min-width: 901px) {
       .result-v3__card--oni > img,
       .result-v3__pamela-media > img {
         height: clamp(500px, 44.5vw, 855px) !important;
         object-fit: cover !important;
         object-position: top center !important;
+        transform: translateY(clamp(-38px, -2vw, -28px));
       }
 
       /* Push the shared descriptions/caption rail further away from the images. */
