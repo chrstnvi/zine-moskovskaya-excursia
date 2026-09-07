@@ -461,3 +461,256 @@
     line-height: 1.05;
   }
 }
+
+/* QA pass — fluid type, light descriptions and tighter evidence blocks. */
+
+/* 01 — remove the outline/seam around the gray Day 1 card. */
+.brief__days {
+  gap: 0;
+  background: transparent;
+}
+.brief__days article {
+  border: 0;
+}
+
+/* 02 — keep the Figma type ratios, but scale them down with the viewport. */
+@media (min-width: 901px) {
+  :root {
+    --display: clamp(66px, 5.729vw, 110px);
+    --chapter: clamp(70px, 6.25vw, 120px);
+    --section: clamp(52px, 4.6875vw, 90px);
+    --item: clamp(36px, 2.9167vw, 56px);
+    --lead: clamp(31px, 2.5vw, 48px);
+    --bodyl: clamp(18px, 1.25vw, 24px);
+    --body: clamp(14px, .8333vw, 16px);
+    --meta: clamp(13px, .8333vw, 16px);
+    --ui: clamp(12px, .7292vw, 14px);
+  }
+
+  body { font-size: var(--body); }
+
+  .hero h1 { font-size: var(--display); }
+
+  .brief__head h2,
+  .opening__body h2,
+  .analysis__copy h2,
+  .thesis h2,
+  .route-map > header h2,
+  .spread-feature h2,
+  .prototype__intro h2,
+  .ending blockquote { font-size: var(--chapter); }
+
+  .brief__days h3,
+  .thesis__equation,
+  .slogan h2 { font-size: var(--section); }
+
+  .route-map h3 { font-size: var(--item); }
+
+  .hero__lead,
+  .large-copy,
+  .thesis__lead,
+  .prototype__lead p:first-child { font-size: var(--lead); }
+
+  .brief__days p,
+  .analysis__note,
+  .opening__body > p:last-child,
+  .route-map li p,
+  .spread-feature > div > p:last-child,
+  .prototype__lead p:last-child,
+  body .result-v3__copy,
+  .ending__copy { font-size: var(--bodyl); }
+
+  .project-meta dd,
+  .opening__aside,
+  .analysis-tab,
+  .slogan__meta dd { font-size: var(--body); }
+
+  .topbar__mark,
+  .topbar__nav,
+  .hero__visual figcaption,
+  .spread-feature figcaption,
+  .prototype-photo figcaption,
+  body .result-v3__card figcaption,
+  .analysis-tab span,
+  .route-map li > span,
+  .palette__typeface-ref,
+  footer,
+  .footer__brand,
+  .footer__workshop,
+  .footer__links { font-size: var(--ui); }
+
+  .eyebrow,
+  .project-meta dt,
+  .go,
+  .route__word,
+  .route__count,
+  .slogan__meta dt,
+  .ending__label { font-size: var(--meta); }
+
+  /* The visual-system block scales as one system rather than overflowing at 1200–1500px. */
+  .palette > header {
+    height: clamp(350px, 26.0417vw, 500px);
+    gap: clamp(20px, 1.5625vw, 30px);
+    padding: clamp(58px, 4.7917vw, 92px) clamp(42px, 5.1042vw, 98px) clamp(38px, 2.9167vw, 56px);
+  }
+  .palette > header h2 { font-size: var(--display); }
+
+  .palette__row,
+  .palette__gold > div {
+    height: clamp(142px, 9.8958vw, 190px);
+    min-height: clamp(142px, 9.8958vw, 190px);
+    grid-template-columns: clamp(44px, 3.125vw, 60px) minmax(250px, 29.1667vw) minmax(0, 1fr);
+    gap: clamp(18px, 1.5625vw, 30px);
+    padding: clamp(18px, 1.25vw, 24px);
+  }
+  .palette__gold { height: clamp(142px, 9.8958vw, 190px); }
+  .palette__row > span,
+  .palette__gold > div > span::after { width: clamp(44px, 3.125vw, 60px); font-size: var(--meta); }
+  .palette__row h3,
+  .palette__gold h3 { width: minmax(250px, 29.1667vw); }
+  .palette__row h3,
+  .palette__gold h3::after,
+  .palette__row--type h3 { font-size: var(--section); }
+  .palette__row p,
+  .palette__gold > div > p::after,
+  .palette__row--type .palette__type-copy p { font-size: var(--bodyl); }
+  .palette__row--type::before { font-size: var(--meta); }
+  .palette__row--type .palette__typeface-ref { font-size: var(--body); }
+
+  .palette__row--type {
+    min-height: clamp(300px, 19.6875vw, 378px);
+    grid-template-rows: auto clamp(190px, 13.0208vw, 250px);
+    column-gap: clamp(44px, 4.1667vw, 80px);
+    row-gap: clamp(24px, 1.7708vw, 34px);
+    padding: clamp(54px, 3.9583vw, 76px) clamp(42px, 5.1042vw, 98px) clamp(38px, 2.7083vw, 52px);
+  }
+  .palette__row--type .palette__type-copy {
+    height: clamp(190px, 13.0208vw, 250px);
+    gap: clamp(20px, 1.4583vw, 28px);
+  }
+}
+
+/* 03–10 — all descriptive copy is Inter Light; tab numbers remain emphatic. */
+.opening__body > p:last-child,
+.analysis__note,
+.analysis-tab,
+.route-map li p,
+.spread-feature > div > p:last-child,
+.prototype__lead p:last-child,
+body .result-v3__copy {
+  font-family: var(--f);
+  font-weight: 300;
+}
+.analysis-tab span {
+  font-weight: 700;
+}
+
+/* 08 — secondary prototype note aligns with the primary explanatory line, not the title. */
+.prototype__lead p:last-child {
+  grid-row: 3;
+  align-self: start;
+  margin-top: 0;
+}
+
+/* 09 — three prototype photos form one edge-to-edge strip; captions close the section. */
+.prototype {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+.prototype__layout {
+  column-gap: 0;
+}
+.prototype__intro .eyebrow,
+.prototype__intro h2,
+.prototype__lead p:first-child {
+  padding-left: var(--pad);
+}
+.prototype__intro h2,
+.prototype__lead p:first-child {
+  padding-right: clamp(28px, 3vw, 56px);
+}
+.prototype__lead p:last-child {
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+.prototype-photo {
+  margin-top: clamp(66px, 5vw, 96px);
+  border: 0;
+  border-top: 1px solid var(--line-l);
+  border-right: 1px solid var(--line-l);
+  background: var(--canvas);
+}
+.prototype-photo--route {
+  border-right: 0;
+}
+.prototype-photo figcaption {
+  min-height: 48px;
+  margin: 0;
+  border-top: 1px solid var(--line-l);
+  border-bottom: 0;
+}
+
+/* 11–12 — accordion sits closer to the upper rail and is vertically centered between captions. */
+body .result-v3__card--accordion {
+  margin-top: clamp(18px, 1.5vw, 30px);
+}
+body .result-v3__accordion-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3.08 / 1;
+}
+body .result-v3__accordion-media img {
+  object-position: center 50%;
+}
+
+/* 13 — the two names use the same secondary treatment and distance from their headings. */
+.footer__brand span,
+.footer__curator {
+  display: block;
+  margin-top: clamp(9px, .65vw, 12px);
+  color: rgba(243,241,236,.66);
+  font-family: var(--f);
+  font-size: var(--ui);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+@media (max-width: 900px) {
+  .prototype {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .prototype__layout {
+    display: block;
+  }
+  .prototype__intro,
+  .prototype__lead {
+    display: block;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .prototype__intro .eyebrow,
+  .prototype__intro h2,
+  .prototype__lead p:first-child,
+  .prototype__lead p:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .prototype-photo {
+    width: 100%;
+    margin-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .prototype-photo:first-of-type {
+    margin-top: 56px;
+  }
+  .footer__brand span,
+  .footer__curator {
+    margin-top: 10px;
+  }
+}
