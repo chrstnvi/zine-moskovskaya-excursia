@@ -4,14 +4,19 @@
   const qaStyles = document.createElement('style');
   qaStyles.id = 'qa-runtime-styles';
   qaStyles.textContent = `
-    /* Result 07 — keep a little more black breathing room between the spreads
-       and their explanatory/caption text. */
+    /* Result 07 — keep more black breathing room around the upper spreads. */
     @media (min-width: 901px) {
       .result-v3__card--oni > img,
       .result-v3__pamela-media > img {
         height: clamp(500px, 44.5vw, 855px) !important;
         object-fit: cover !important;
         object-position: top center !important;
+      }
+
+      /* Push the shared descriptions/caption rail further away from the images. */
+      .result-v3__card--oni figcaption,
+      .result-v3__card--pamela figcaption {
+        margin-top: clamp(34px, 2.3vw, 44px) !important;
       }
     }
 
