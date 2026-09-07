@@ -6,101 +6,9 @@
   <meta name="theme-color" content="#ff140d"/>
   <meta name="description" content="Кейс экспериментального зина по путевым заметкам Памелы Трэверс: от ритма текста до физической режиссуры чтения."/>
   <title>Московская экскурсия — экспериментальный зин</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
   <link rel="stylesheet" href="./styles.css"/>
   <script src="./script.js" defer></script>
-
-  <style id="result-v3-styles">
-    /* Result 07: isolated layout matching supplied Frame 75. */
-    .result-v3 { background: var(--ink); }
-    .result-v3__top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      width: 100%;
-      background: var(--ink);
-    }
-    .result-v3__card {
-      position: relative;
-      min-width: 0;
-      margin: 0;
-      color: var(--chalk);
-      background: var(--ink);
-    }
-    .result-v3__card > img,
-    .result-v3__pamela-media > img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: none;
-    }
-    .result-v3__pamela-media { position: relative; }
-    .result-v3__copy {
-      position: absolute;
-      z-index: 2;
-      top: 7.5%;
-      left: 8.5%;
-      width: 66%;
-      max-width: 620px;
-      margin: 0;
-      color: var(--chalk);
-      font-size: var(--bodyl);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-    .result-v3__card figcaption {
-      position: static;
-      width: 100%;
-      min-height: 38px;
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 10px 14px;
-      color: var(--chalk);
-      background: var(--ink);
-      border-top: 1px solid var(--line-d);
-      border-bottom: 1px solid var(--line-d);
-      font: 600 var(--ui)/1.1 var(--f);
-      letter-spacing: 0;
-      text-transform: uppercase;
-    }
-    .result-v3__card--pamela figcaption { border-left: 1px solid var(--line-d); }
-    .result-v3__card--accordion {
-      width: 100%;
-      margin-top: clamp(56px, 4vw, 78px);
-    }
-    .result-v3__accordion-media {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3.08 / 1;
-      overflow: hidden;
-      background: var(--ink);
-    }
-    .result-v3__accordion-media img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-width: none;
-      object-fit: cover;
-      object-position: center 60%;
-    }
-    .result-v3__card--accordion figcaption { padding-left: var(--pad); padding-right: var(--pad); }
-
-    @media (max-width: 900px) {
-      .result-v3__top { grid-template-columns: 1fr; }
-      .result-v3__card--pamela figcaption { border-left: 0; }
-      .result-v3__copy {
-        position: static;
-        width: auto;
-        max-width: none;
-        padding: 36px var(--pad) 28px;
-        font-size: var(--bodyl);
-      }
-      .result-v3__pamela-media { display: flex; flex-direction: column; }
-      .result-v3__pamela-media .result-v3__copy { order: -1; }
-      .result-v3__card--accordion { margin-top: 48px; }
-      .result-v3__accordion-media { aspect-ratio: 1.75 / 1; }
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
@@ -170,13 +78,13 @@
       <div class="analysis__copy">
         <p class="eyebrow">Разобрать до слов</p>
         <h2 id="analysis-title">Пять проходов по одному тексту</h2>
-        <p class="analysis__note" id="analysis-note">Сначала просто читаю фрагмент целиком — без разметки и готовой идеи</p>
+        <p class="analysis__note" id="analysis-note">Прочитать, подумать, понять</p>
         <div class="analysis__tabs" role="tablist" aria-label="Слои анализа текста">
-          <button class="analysis-tab is-active" role="tab" aria-selected="true" data-note="Сначала просто читаю фрагмент целиком — без разметки и готовой идеи"><span>01</span>Исходный текст</button>
-          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Стало видно, что героиню всё время куда-то ведут, торопят и останавливают"><span>02</span>Действия</button>
-          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Проявились цвет, фактура и общее ощущение Москвы"><span>03</span>Прилагательные</button>
-          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Нашлись слова, которые можно превратить в ритм"><span>04</span>Повторы</button>
-          <button class="analysis-tab" role="tab" aria-selected="false" data-note="После всего лишнего остался скелет текста"><span>05</span>Ключевые слова</button>
+          <button class="analysis-tab is-active" role="tab" aria-selected="true" data-note="Прочитать, подумать, понять"><span>01</span>Исходный текст</button>
+          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Что здесь вообще происходит: кто идёт, смотрит, запрещает, торопит, открывает"><span>02</span>Выделить действия</button>
+          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Всё, что задаёт цвет, фактуру, настроение и степень происходящего"><span>03</span>Прилагательные и наречия</button>
+          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Главное в каждом абзаце плюс странные, смешные и цепляющие детали, которые жалко потерять"><span>04</span>Ключевые слова + приколы</button>
+          <button class="analysis-tab" role="tab" aria-selected="false" data-note="Убрать всё лишнее, оставить только смысловой скелет, понять одну из метафор — выделить её"><span>05</span>Только ключевые слова</button>
         </div>
       </div>
       <div class="analysis__viewport">
@@ -215,14 +123,13 @@
     <section class="palette chapter" data-step="05">
       <header><p class="eyebrow">Визуальная система</p><h2><span>Серый.</span><span>Красный.</span><span>Немного золота.</span></h2></header>
       <div class="palette__row palette__row--gray"><span>01</span><h3>Серый</h3><p>Цвет дороги, пасмурного пейзажа и Москвы, которую Трэверс сначала видит почти бесцветной</p></div>
-      <div class="palette__row palette__row--red"><span>02</span><h3>Красный</h3><p>Чем ближе Москва, тем больше красного: он появляется вместе с напряжением, запретами, плакатами и «ОНИ»</p></div>
-      <div class="palette__row palette__row--type">
-        <span>03</span><h3>Gramatika</h3>
-        <div class="palette__type-copy"><p>В чистовой версии шрифтовую систему продолжает Gramatika Романа Горницкого. Её Shifted-начертание работает в той же логике, что и сам зин: текст смещается, разрывается и заставляет взгляд двигаться</p><a class="palette__typeface-ref" href="https://type.tmpstate.net/preview/Gramatika/Regular/overview/" target="_blank" rel="noreferrer">Gramatika — Roman Gornitsky / The Temporary State ↗ · веб-версия: Inter</a></div>
-      </div>
+      <div class="palette__row palette__row--red"><span>02</span><h3>Красный</h3><p>Чем ближе Москва, тем больше красного: напряжение, запреты, плакаты и наступающие «ОНИ»</p></div>
       <div class="palette__gold">
-        <div><span>Фольга</span><h3>Золото ловит свет</h3><p>Единственное исключение из двухцветной системы — тиснение золотой матовой фольгой. Оно появляется там, где купола вспыхивают в солнечных лучах</p></div>
-        <figure><img src="./assets/04-gold-circles.webp" width="1448" height="1086" alt="Разворот зина с большим кругом золотого фольгирования и красной страницей" loading="lazy"/><figcaption>Визуализация тиснения золотой матовой фольгой · 02</figcaption></figure>
+        <div><span>03</span><h3>Золото</h3><p>Одно исключение из двухцветной системы — золотая фольга там, где купола вспыхивают в солнечных лучах</p></div>
+      </div>
+      <div class="palette__row palette__row--type">
+        <span aria-hidden="true">04</span><h3>Gramatika</h3>
+        <div class="palette__type-copy"><p>Шрифтовое направление — Gramatika Романа Горницкого. Shifted-начертание продолжает механику зина: текст смещается, разрывает ровную строку и заставляет взгляд двигаться</p><a class="palette__typeface-ref" href="https://type.tmpstate.net/preview/Gramatika/Regular/overview/" target="_blank" rel="noreferrer">Gramatika — Roman Gornitsky / The Temporary State</a></div>
       </div>
     </section>
 
@@ -249,8 +156,8 @@
             <p>Вместо аккуратного макета появился прототип, собранный тяп-ляп из скотча, клея и конфетной фольги.</p>
           </div>
         </header>
-        <figure class="prototype-photo prototype-photo--worktable"><img src="./assets/prototype-02-worktable.jpeg" alt="Рабочий стол во время сборки прототипа" loading="lazy"/><figcaption>Рабочий стол во время сборки · 02</figcaption></figure>
         <figure class="prototype-photo prototype-photo--tools"><img src="./assets/prototype-01-tools.jpeg" alt="Инструменты и черновой прототип" loading="lazy"/><figcaption>Инструменты и черновой прототип · 01</figcaption></figure>
+        <figure class="prototype-photo prototype-photo--worktable"><img src="./assets/prototype-02-worktable.jpeg" alt="Рабочий стол во время сборки прототипа" loading="lazy"/><figcaption>Рабочий стол во время сборки · 02</figcaption></figure>
         <figure class="prototype-photo prototype-photo--route"><img src="./assets/prototype-03-route.jpeg" alt="Схема маршрута и бумажный прототип" loading="lazy"/><figcaption>Схема маршрута и бумажный прототип · 03</figcaption></figure>
       </div>
     </section>
@@ -318,11 +225,8 @@
       };
 
       fixTree(document.body);
-
       new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          mutation.addedNodes.forEach(fixTree);
-        }
+        for (const mutation of mutations) mutation.addedNodes.forEach(fixTree);
       }).observe(document.body, { childList: true, subtree: true });
     })();
   </script>
