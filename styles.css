@@ -305,3 +305,24 @@ footer { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(340px, 
   .footer__links { justify-content: flex-start; }
   .footer__brand span, .footer__curator { margin-top: 10px; }
 }
+
+@media (min-width: 901px) {
+  .gallery-result__grid::after {
+    content: "";
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    top: 84.947917cqw;
+    width: 100%;
+    height: 1px;
+    background: var(--line-d);
+    pointer-events: none;
+  }
+
+  .gallery-result__card--gold .gallery-result__media {
+    left: -3.240827cqw !important;
+    top: -3.476995cqw !important;
+    width: 56.481654cqw !important;
+    height: 70.602061cqw !important;
+  }
+}
