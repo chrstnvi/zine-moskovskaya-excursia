@@ -1,162 +1,10 @@
-@import url('./styles-layout.css');
+@import url('./assets/styles-main.css');
 
-/* Typography system synced to the local Figma text styles in frame 348:4755. */
-:root {
-  --f-lead: "Inter Display", "Inter", Arial, Helvetica, sans-serif;
-}
-
-@media (min-width: 901px) {
-  :root {
-    --display: 110px;
-    --chapter: 120px;
-    --section: 90px;
-    --item: 56px;
-    --lead: 48px;
-    --bodyl: 24px;
-    --body: 16px;
-    --meta: 16px;
-    --ui: 14px;
-  }
-
-  body {
-    font-family: var(--f);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: .03em;
-  }
-
-  /* Display — Inter Bold 110 / 86% / -3% */
-  .hero h1 {
-    font-family: var(--f);
-    font-size: 110px;
-    font-weight: 700;
-    line-height: .86;
-    letter-spacing: -.03em;
-  }
-
-  /* Chapter — Inter Bold 120 / 76% / -3% */
-  .brief__head h2,
-  .opening__body h2,
-  .analysis__copy h2,
-  .thesis h2,
-  .route-map > header h2,
-  .spread-feature h2,
-  .palette > header h2,
-  .palette__gold h3,
-  .prototype__intro h2,
-  .ending blockquote {
-    font-family: var(--f);
-    font-size: 120px;
-    font-weight: 700;
-    line-height: .76;
-    letter-spacing: -.03em;
-  }
-
-  /* Section — Inter Bold 90 / 100% / -6% */
-  .brief__days h3,
-  .thesis__equation,
-  .palette__row h3,
-  .slogan h2 {
-    font-family: var(--f);
-    font-size: 90px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -.06em;
-  }
-
-  /* Item Heading — Inter Bold 56 / 100% / -5% */
-  .route-map h3 {
-    font-family: var(--f);
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -.05em;
-  }
-
-  /* Lead — Inter Display Light 48 / 100% / 0% */
-  .hero__lead,
-  .large-copy,
-  .thesis__lead,
-  .prototype__lead p:first-child {
-    font-family: var(--f-lead);
-    font-size: 48px;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: 0;
-  }
-
-  /* Body L — Inter Regular 24 / 100% / 0% */
-  .brief__days p,
-  .analysis__note,
-  .opening__body > p:last-child,
-  .route-map li p,
-  .spread-feature > div > p:last-child,
-  .palette__row p,
-  .palette__gold > div p,
-  .prototype__lead p:last-child,
-  .result-v3__copy,
-  .ending__copy {
-    font-family: var(--f);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-  }
-
-  /* Body — Inter Regular 16 / 102% / +3% */
-  .project-meta dd,
-  .opening__aside,
-  .analysis-tab,
-  .slogan__meta dd {
-    font-family: var(--f);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: .03em;
-  }
-
-  /* UI — Inter Semi Bold 14 / 110% / 0% */
-  .topbar__mark,
-  .topbar__nav,
-  .hero__visual figcaption,
-  .spread-feature figcaption,
-  .palette__gold figcaption,
-  .prototype-photo figcaption,
-  .result-v3__card figcaption,
-  .analysis-tab span,
-  .route-map li > span,
-  .palette__typeface-ref,
-  footer,
-  .footer__brand,
-  .footer__workshop,
-  .footer__links {
-    font-family: var(--f);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: 0;
-  }
-
-  /* Meta — Inter Bold 16 / 110% / +4%, uppercase */
-  .eyebrow,
-  .project-meta dt,
-  .go,
-  .route__word,
-  .route__count,
-  .slogan__meta dt,
-  .ending__label {
-    font-family: var(--f);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-  }
-}
-
-/* Visual system — layout synced to Figma frame 408:5. */
+/* Visual system — exact reflow from Figma 408:5. */
 .palette {
+  --vs-x: clamp(32px, 5.1042vw, 98px);
+  --vs-row-pad: clamp(18px, 1.25vw, 24px);
+  --vs-gap: clamp(18px, 1.5625vw, 30px);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -166,23 +14,29 @@
 
 .palette > header {
   order: 1;
-  height: 500px;
+  height: clamp(360px, 26.0417vw, 500px);
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: flex-start;
+  gap: clamp(20px, 1.5625vw, 30px);
   margin: 0;
-  padding: 92px 98px 56px;
+  padding: clamp(64px, 4.7917vw, 92px) var(--vs-x) clamp(40px, 2.9167vw, 56px);
   overflow: hidden;
+  color: var(--ink);
+  background: var(--canvas);
 }
 .palette > header .eyebrow {
   margin: 0;
+  color: var(--red);
 }
 .palette > header h2 {
   width: min(1500px, 100%);
   max-width: 1500px;
   margin: 0;
+  color: var(--ink);
   font-family: var(--f);
-  font-size: 110px;
+  font-size: var(--display);
   font-weight: 700;
   line-height: .86;
   letter-spacing: -.03em;
@@ -197,66 +51,85 @@
   display: block;
 }
 
-.palette__row {
+.palette__row,
+.palette__gold > div {
   width: 100%;
-  height: 190px;
-  min-height: 190px;
+  height: clamp(150px, 9.8958vw, 190px);
+  min-height: clamp(150px, 9.8958vw, 190px);
   display: grid;
-  grid-template-columns: 60px 560px minmax(0, 880px);
-  gap: 30px;
+  grid-template-columns:
+    clamp(44px, 3.125vw, 60px)
+    clamp(260px, 29.1667vw, 560px)
+    clamp(360px, 45.8333vw, 880px);
+  gap: var(--vs-gap);
   align-items: center;
-  padding: 24px;
+  justify-content: start;
+  padding: var(--vs-row-pad);
+  overflow: hidden;
   border: 0;
+  color: var(--ink);
 }
-.palette__row--gray { order: 2; background: var(--paper); }
-.palette__row--red { order: 3; background: var(--red); }
-.palette__row > span {
-  width: 60px;
-  font: 700 16px/1.1 var(--f);
+.palette__row--gray {
+  order: 2;
+  background: var(--paper);
+}
+.palette__row--red {
+  order: 3;
+  background: var(--red);
+}
+.palette__row > span,
+.palette__gold > div > span {
+  width: auto;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--f);
+  font-size: var(--meta);
+  font-weight: 700;
+  line-height: 1.1;
   letter-spacing: .04em;
   text-transform: uppercase;
 }
-.palette__row h3 {
-  width: 560px;
+.palette__row h3,
+.palette__gold h3 {
+  width: auto;
+  max-width: none;
   margin: 0;
+  padding: 0;
+  color: var(--ink);
   font-family: var(--f);
-  font-size: 90px;
+  font-size: var(--section);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -.06em;
   text-transform: uppercase;
 }
-.palette__row p {
-  width: min(880px, 100%);
-  max-width: 880px;
+.palette__row p,
+.palette__gold > div > p {
+  width: auto;
+  max-width: none;
   margin: 0;
+  padding: 0;
+  color: var(--ink);
   font-family: var(--f);
-  font-size: 24px;
+  font-size: var(--bodyl);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
 }
 
-/* Reuse the existing gold proof markup as the third color row. */
+/* Gold is the third color row, not a separate image feature. */
 .palette__gold {
   order: 4;
   display: block;
   width: 100%;
-  height: 190px;
+  height: clamp(150px, 9.8958vw, 190px);
   margin: 0;
   color: var(--ink);
   background: var(--gold);
   border: 0;
 }
 .palette__gold > div {
-  width: 100%;
-  height: 190px;
-  display: grid;
-  grid-template-columns: 60px 560px minmax(0, 880px);
-  gap: 30px;
-  align-items: center;
-  padding: 24px;
-  border: 0;
+  background: var(--gold);
 }
 .palette__gold figure {
   display: none;
@@ -264,61 +137,43 @@
 .palette__gold > div > span,
 .palette__gold h3,
 .palette__gold > div > p {
-  margin: 0;
-  padding: 0;
-  color: var(--ink);
-  font-size: 0;
-  line-height: 0;
+  font-size: revert;
+  line-height: revert;
 }
-.palette__gold > div > span::after {
-  content: "03";
-  display: block;
-  width: 60px;
-  font: 700 16px/1.1 var(--f);
-  letter-spacing: .04em;
-  text-transform: uppercase;
+.palette__gold > div > span {
+  font-size: var(--meta);
+  line-height: 1.1;
 }
 .palette__gold h3 {
-  width: 560px;
-  max-width: none;
-}
-.palette__gold h3::after {
-  content: "ЗОЛОТО";
-  display: block;
-  font-family: var(--f);
-  font-size: 90px;
-  font-weight: 700;
+  font-size: var(--section);
   line-height: 1;
-  letter-spacing: -.06em;
 }
 .palette__gold > div > p {
-  width: min(880px, 100%);
-  max-width: 880px;
-}
-.palette__gold > div > p::after {
-  content: "Одно исключение из двухцветной системы — золотая фольга там, где купола вспыхивают в солнечных лучах";
-  display: block;
-  font-family: var(--f);
-  font-size: 24px;
-  font-weight: 400;
+  font-size: var(--bodyl);
   line-height: 1;
-  letter-spacing: 0;
+}
+.palette__gold > div > span::after,
+.palette__gold h3::after,
+.palette__gold > div > p::after {
+  content: none !important;
 }
 
-/* Typography becomes its own black field below the three color rows. */
+/* Typography is a canvas-colored continuation of the visual system. */
 .palette__row--type {
   order: 5;
+  width: 100%;
+  min-height: clamp(320px, 19.6875vw, 378px);
   height: auto;
-  min-height: 378px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-rows: auto 250px;
-  column-gap: 80px;
-  row-gap: 34px;
+  grid-template-columns: minmax(0, 820fr) minmax(0, 824fr);
+  grid-template-rows: auto clamp(190px, 13.0208vw, 250px);
+  column-gap: clamp(44px, 4.1667vw, 80px);
+  row-gap: clamp(24px, 1.7708vw, 34px);
   align-items: start;
-  padding: 76px 98px 52px;
-  color: var(--chalk);
-  background: var(--ink);
+  padding: clamp(56px, 3.9583vw, 76px) var(--vs-x) 0;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--canvas);
   border: 0;
 }
 .palette__row--type::before {
@@ -326,7 +181,10 @@
   grid-column: 1 / -1;
   grid-row: 1;
   color: var(--red);
-  font: 700 16px/1.1 var(--f);
+  font-family: var(--f);
+  font-size: var(--meta);
+  font-weight: 700;
+  line-height: 1.1;
   letter-spacing: .04em;
   text-transform: uppercase;
 }
@@ -337,9 +195,10 @@
   grid-column: 1;
   grid-row: 2;
   width: auto;
-  color: var(--chalk);
+  margin: 0;
+  color: var(--ink);
   font-family: var(--f);
-  font-size: 90px;
+  font-size: var(--section);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -.06em;
@@ -352,45 +211,51 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 28px;
+  gap: clamp(20px, 1.4583vw, 28px);
   min-width: 0;
-  height: 250px;
+  height: clamp(190px, 13.0208vw, 250px);
 }
 .palette__row--type .palette__type-copy p {
   width: min(786px, 100%);
   max-width: 786px;
-  color: var(--chalk);
+  margin: 0;
+  color: var(--ink);
   font-family: var(--f);
-  font-size: 24px;
+  font-size: var(--bodyl);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
 }
 .palette__row--type .palette__typeface-ref {
   align-self: flex-start;
+  width: min(824px, 100%);
   margin: 0;
-  color: rgba(243,241,236,.66);
+  color: rgba(9,9,9,.62);
   font-family: var(--f);
-  font-size: 16px;
+  font-size: var(--body);
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: .03em;
   text-decoration: none;
 }
 
-/* The old gold feature used to create a huge pause here; it is now a compact color row. */
 .palette + .slogan {
   padding-top: clamp(90px, 6vw, 115px);
 }
 
 @media (max-width: 900px) {
+  .palette {
+    --vs-x: var(--pad);
+    --vs-row-pad: 24px;
+    --vs-gap: 18px;
+  }
   .palette > header {
     height: auto;
     min-height: 360px;
-    padding: 72px var(--pad) 64px;
+    padding: 72px var(--vs-x) 64px;
   }
   .palette > header h2 {
-    font-size: clamp(58px, 12vw, 84px);
+    font-size: clamp(54px, 12vw, 84px);
   }
   .palette > header h2 span,
   .palette > header h2 span:nth-child(3) {
@@ -405,29 +270,19 @@
     height: auto;
     min-height: 190px;
     grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-rows: auto auto;
     gap: 14px 18px;
-    padding: 24px var(--pad);
-  }
-  .palette__row > span,
-  .palette__gold > div > span::after {
-    width: 44px;
+    padding: 24px var(--vs-x);
+    overflow: visible;
   }
   .palette__row h3,
   .palette__gold h3 {
-    width: auto;
-  }
-  .palette__row h3,
-  .palette__gold h3::after {
+    grid-column: 2;
     font-size: clamp(48px, 13vw, 72px);
   }
   .palette__row p,
   .palette__gold > div > p {
     grid-column: 2;
-    width: auto;
-    max-width: none;
-  }
-  .palette__row p,
-  .palette__gold > div > p::after {
     font-size: 20px;
     line-height: 1.05;
   }
@@ -440,7 +295,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     row-gap: 30px;
-    padding: 64px var(--pad) 72px;
+    padding: 64px var(--vs-x) 72px;
+    overflow: visible;
   }
   .palette__row--type::before {
     grid-column: 1;
@@ -449,268 +305,19 @@
   .palette__row--type h3 {
     grid-column: 1;
     grid-row: 2;
-    font-size: clamp(58px, 14vw, 82px);
+    font-size: clamp(56px, 14vw, 82px);
   }
   .palette__row--type .palette__type-copy {
     grid-column: 1;
     grid-row: 3;
     height: auto;
+    gap: 24px;
   }
   .palette__row--type .palette__type-copy p {
     font-size: 20px;
     line-height: 1.05;
   }
-}
-
-/* QA pass — fluid type, light descriptions and tighter evidence blocks. */
-
-/* 01 — remove the outline/seam around the gray Day 1 card. */
-.brief__days {
-  gap: 0;
-  background: transparent;
-}
-.brief__days article {
-  border: 0;
-}
-
-/* 02 — keep the Figma type ratios, but scale them down with the viewport. */
-@media (min-width: 901px) {
-  :root {
-    --display: clamp(66px, 5.729vw, 110px);
-    --chapter: clamp(70px, 6.25vw, 120px);
-    --section: clamp(52px, 4.6875vw, 90px);
-    --item: clamp(36px, 2.9167vw, 56px);
-    --lead: clamp(31px, 2.5vw, 48px);
-    --bodyl: clamp(18px, 1.25vw, 24px);
-    --body: clamp(14px, .8333vw, 16px);
-    --meta: clamp(13px, .8333vw, 16px);
-    --ui: clamp(12px, .7292vw, 14px);
-  }
-
-  body { font-size: var(--body); }
-
-  .hero h1 { font-size: var(--display); }
-
-  .brief__head h2,
-  .opening__body h2,
-  .analysis__copy h2,
-  .thesis h2,
-  .route-map > header h2,
-  .spread-feature h2,
-  .prototype__intro h2,
-  .ending blockquote { font-size: var(--chapter); }
-
-  .brief__days h3,
-  .thesis__equation,
-  .slogan h2 { font-size: var(--section); }
-
-  .route-map h3 { font-size: var(--item); }
-
-  .hero__lead,
-  .large-copy,
-  .thesis__lead,
-  .prototype__lead p:first-child { font-size: var(--lead); }
-
-  .brief__days p,
-  .analysis__note,
-  .opening__body > p:last-child,
-  .route-map li p,
-  .spread-feature > div > p:last-child,
-  .prototype__lead p:last-child,
-  body .result-v3__copy,
-  .ending__copy { font-size: var(--bodyl); }
-
-  .project-meta dd,
-  .opening__aside,
-  .analysis-tab,
-  .slogan__meta dd { font-size: var(--body); }
-
-  .topbar__mark,
-  .topbar__nav,
-  .hero__visual figcaption,
-  .spread-feature figcaption,
-  .prototype-photo figcaption,
-  body .result-v3__card figcaption,
-  .analysis-tab span,
-  .route-map li > span,
-  .palette__typeface-ref,
-  footer,
-  .footer__brand,
-  .footer__workshop,
-  .footer__links { font-size: var(--ui); }
-
-  .eyebrow,
-  .project-meta dt,
-  .go,
-  .route__word,
-  .route__count,
-  .slogan__meta dt,
-  .ending__label { font-size: var(--meta); }
-
-  /* The visual-system block scales as one system rather than overflowing at 1200–1500px. */
-  .palette > header {
-    height: clamp(350px, 26.0417vw, 500px);
-    gap: clamp(20px, 1.5625vw, 30px);
-    padding: clamp(58px, 4.7917vw, 92px) clamp(42px, 5.1042vw, 98px) clamp(38px, 2.9167vw, 56px);
-  }
-  .palette > header h2 { font-size: var(--display); }
-
-  .palette__row,
-  .palette__gold > div {
-    height: clamp(142px, 9.8958vw, 190px);
-    min-height: clamp(142px, 9.8958vw, 190px);
-    grid-template-columns: clamp(44px, 3.125vw, 60px) minmax(250px, 29.1667vw) minmax(0, 1fr);
-    gap: clamp(18px, 1.5625vw, 30px);
-    padding: clamp(18px, 1.25vw, 24px);
-  }
-  .palette__gold { height: clamp(142px, 9.8958vw, 190px); }
-  .palette__row > span,
-  .palette__gold > div > span::after { width: clamp(44px, 3.125vw, 60px); font-size: var(--meta); }
-  .palette__row h3,
-  .palette__gold h3 { width: minmax(250px, 29.1667vw); }
-  .palette__row h3,
-  .palette__gold h3::after,
-  .palette__row--type h3 { font-size: var(--section); }
-  .palette__row p,
-  .palette__gold > div > p::after,
-  .palette__row--type .palette__type-copy p { font-size: var(--bodyl); }
-  .palette__row--type::before { font-size: var(--meta); }
-  .palette__row--type .palette__typeface-ref { font-size: var(--body); }
-
-  .palette__row--type {
-    min-height: clamp(300px, 19.6875vw, 378px);
-    grid-template-rows: auto clamp(190px, 13.0208vw, 250px);
-    column-gap: clamp(44px, 4.1667vw, 80px);
-    row-gap: clamp(24px, 1.7708vw, 34px);
-    padding: clamp(54px, 3.9583vw, 76px) clamp(42px, 5.1042vw, 98px) clamp(38px, 2.7083vw, 52px);
-  }
-  .palette__row--type .palette__type-copy {
-    height: clamp(190px, 13.0208vw, 250px);
-    gap: clamp(20px, 1.4583vw, 28px);
-  }
-}
-
-/* 03–10 — all descriptive copy is Inter Light; tab numbers remain emphatic. */
-.opening__body > p:last-child,
-.analysis__note,
-.analysis-tab,
-.route-map li p,
-.spread-feature > div > p:last-child,
-.prototype__lead p:last-child,
-body .result-v3__copy {
-  font-family: var(--f);
-  font-weight: 300;
-}
-.analysis-tab span {
-  font-weight: 700;
-}
-
-/* 08 — secondary prototype note aligns with the primary explanatory line, not the title. */
-.prototype__lead p:last-child {
-  grid-row: 3;
-  align-self: start;
-  margin-top: 0;
-}
-
-/* 09 — three prototype photos form one edge-to-edge strip; captions close the section. */
-.prototype {
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-}
-.prototype__layout {
-  column-gap: 0;
-}
-.prototype__intro .eyebrow,
-.prototype__intro h2,
-.prototype__lead p:first-child {
-  padding-left: var(--pad);
-}
-.prototype__intro h2,
-.prototype__lead p:first-child {
-  padding-right: clamp(28px, 3vw, 56px);
-}
-.prototype__lead p:last-child {
-  padding-left: var(--pad);
-  padding-right: var(--pad);
-}
-.prototype-photo {
-  margin-top: clamp(66px, 5vw, 96px);
-  border: 0;
-  border-top: 1px solid var(--line-l);
-  border-right: 1px solid var(--line-l);
-  background: var(--canvas);
-}
-.prototype-photo--route {
-  border-right: 0;
-}
-.prototype-photo figcaption {
-  min-height: 48px;
-  margin: 0;
-  border-top: 1px solid var(--line-l);
-  border-bottom: 0;
-}
-
-/* 11–12 — accordion sits closer to the upper rail and is vertically centered between captions. */
-body .result-v3__card--accordion {
-  margin-top: clamp(18px, 1.5vw, 30px);
-}
-body .result-v3__accordion-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 3.08 / 1;
-}
-body .result-v3__accordion-media img {
-  object-position: center 50%;
-}
-
-/* 13 — the two names use the same secondary treatment and distance from their headings. */
-.footer__brand span,
-.footer__curator {
-  display: block;
-  margin-top: clamp(9px, .65vw, 12px);
-  color: rgba(243,241,236,.66);
-  font-family: var(--f);
-  font-size: var(--ui);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: 0;
-}
-
-@media (max-width: 900px) {
-  .prototype {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-  }
-  .prototype__layout {
-    display: block;
-  }
-  .prototype__intro,
-  .prototype__lead {
-    display: block;
-    padding-left: var(--pad);
-    padding-right: var(--pad);
-  }
-  .prototype__intro .eyebrow,
-  .prototype__intro h2,
-  .prototype__lead p:first-child,
-  .prototype__lead p:last-child {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .prototype-photo {
-    width: 100%;
-    margin-top: 0;
-    border-right: 0;
-    border-bottom: 0;
-  }
-  .prototype-photo:first-of-type {
-    margin-top: 56px;
-  }
-  .footer__brand span,
-  .footer__curator {
-    margin-top: 10px;
+  .palette__row--type .palette__typeface-ref {
+    font-size: 15px;
   }
 }
