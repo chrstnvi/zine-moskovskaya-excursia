@@ -343,3 +343,33 @@ h2,
     font-size: var(--type-lead);
   }
 }
+
+/* 06 — Slogan: let the black scene breathe before the red horizontal mechanic starts. */
+@media (min-width: 901px) {
+  .palette + .slogan,
+  .slogan {
+    padding-top: 0;
+  }
+
+  .slogan header {
+    min-height: clamp(340px, 40vh, 390px);
+    align-items: stretch;
+    padding: clamp(54px, 6vh, 72px) var(--pad) clamp(58px, 6.5vh, 78px);
+  }
+
+  .slogan header > div:first-child {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .slogan .eyebrow {
+    margin: 0;
+  }
+
+  .slogan__meta {
+    align-self: end;
+    padding-bottom: .25em;
+  }
+}
