@@ -146,6 +146,71 @@ h2,
   background: var(--red);
 }
 
+/* 04 — Visual system + typography should read as one screen-sized chapter. */
+@media (min-width: 901px) {
+  .palette {
+    min-height: calc(100svh - 59px);
+  }
+
+  .palette > header {
+    height: clamp(230px, 28vh, 275px);
+    min-height: 0;
+    gap: 12px;
+    padding-top: clamp(26px, 3vh, 34px);
+    padding-bottom: clamp(20px, 2.4vh, 28px);
+  }
+
+  .palette > header .eyebrow {
+    margin: 0;
+  }
+
+  .palette > header h2 {
+    line-height: .82;
+  }
+
+  .palette__row,
+  .palette__gold > div {
+    height: clamp(210px, 27vh, 245px);
+    min-height: clamp(210px, 27vh, 245px);
+    gap: 14px;
+    padding: clamp(24px, 2.4vw, 40px) clamp(28px, 3vw, 50px);
+  }
+
+  .palette__row h3,
+  .palette__gold h3 {
+    line-height: .9;
+  }
+
+  .palette__row p,
+  .palette__gold > div > p {
+    line-height: 1.03;
+  }
+
+  .palette__row--type {
+    min-height: 175px;
+    grid-template-rows: auto 1fr;
+    row-gap: 18px;
+    padding: clamp(24px, 2.6vh, 30px) var(--vs-x) clamp(26px, 3vh, 34px);
+  }
+
+  .palette__row--type::before {
+    align-self: start;
+  }
+
+  .palette__row--type h3 {
+    align-self: start;
+    line-height: .9;
+  }
+
+  .palette__row--type .palette__type-copy {
+    gap: 12px;
+  }
+
+  .palette__row--type .palette__type-copy p {
+    line-height: 1.03;
+  }
+}
+
 @media (max-width: 900px) {
   :root {
     --type-display: clamp(48px, 12.5vw, 60px);
