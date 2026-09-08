@@ -521,7 +521,7 @@ h2,
     margin: 0;
     padding: 0;
     border: 0;
-    color: rgba(243, 241, 236, .72);
+    color: rgba(243,241,236,.72);
     background: transparent;
     font: 400 12px/1.22 var(--f);
     letter-spacing: 0;
@@ -745,5 +745,61 @@ h2,
 
   .ending blockquote > span {
     display: block;
+  }
+}
+
+/* Surgical fixes after visual review: keep the approved hierarchy, only correct alignment and arrows. */
+@media (min-width: 901px) {
+  /* Remove the visual divider between image and copy. */
+  .spread-feature figure {
+    border-right: 0;
+  }
+
+  /* Use one internal gutter across the visual-system block. */
+  .palette {
+    --vs-x: clamp(30px, 3vw, 50px);
+  }
+
+  .palette > header,
+  .palette__row,
+  .palette__gold > div,
+  .palette__row--type {
+    padding-left: var(--vs-x);
+    padding-right: var(--vs-x);
+  }
+
+  /* Keep the approved thesis hierarchy exactly as-is; only normalize arrow geometry. */
+  .thesis__equation b {
+    width: clamp(82px, 6.4vw, 122px);
+    height: 18px;
+    background: var(--ink);
+    clip-path: polygon(0 42%, 78% 42%, 78% 0, 100% 50%, 78% 100%, 78% 58%, 0 58%);
+  }
+
+  .thesis__equation b::after {
+    content: none;
+  }
+
+  /* Same arrow language for the horizontal-scroll cue, without changing its composition. */
+  #slogan-title {
+    display: flex;
+    align-items: center;
+    gap: clamp(22px, 2vw, 34px);
+    font-size: 0;
+  }
+
+  #slogan-title::before {
+    content: "Потяни вправо";
+    font: 700 var(--type-section)/1 var(--f);
+    letter-spacing: -.06em;
+  }
+
+  #slogan-title::after {
+    content: "";
+    flex: 0 0 auto;
+    width: clamp(82px, 6.4vw, 122px);
+    height: 18px;
+    background: var(--chalk);
+    clip-path: polygon(0 42%, 78% 42%, 78% 0, 100% 50%, 78% 100%, 78% 58%, 0 58%);
   }
 }
