@@ -373,3 +373,377 @@ h2,
     padding-bottom: .25em;
   }
 }
+
+/* 07 — Eight-screen refinement pass. Keep the gallery itself untouched for now. */
+@media (min-width: 901px) {
+  /* 1. Reading: source line belongs to the same viewport, not a second beat. */
+  .opening {
+    height: calc(100svh - 59px);
+    min-height: 720px;
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: clamp(52px, 5.5vw, 96px);
+    padding: clamp(40px, 4.8vh, 58px) var(--pad) 0;
+    overflow: hidden;
+  }
+
+  .opening__label,
+  .opening__body {
+    grid-row: 1;
+  }
+
+  .opening__label .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .opening__body h2 {
+    margin-bottom: clamp(24px, 2.8vh, 34px);
+    line-height: .8;
+  }
+
+  .opening__body .large-copy {
+    max-width: 1010px;
+    margin-bottom: 0;
+    line-height: .99;
+  }
+
+  .opening__body > p:last-child {
+    max-width: 760px;
+    margin: clamp(24px, 2.8vh, 34px) 0 0 auto;
+    line-height: 1.06;
+  }
+
+  .opening__source {
+    grid-row: 2;
+    margin: 0 calc(var(--pad) * -1);
+    padding: 18px var(--pad) 20px;
+    gap: clamp(28px, 3.5vw, 64px);
+  }
+
+  /* 2. Idea: balance headline, explanation and formula as three separate masses. */
+  .thesis {
+    min-height: calc(100svh - 59px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(430px, .92fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    column-gap: clamp(70px, 7vw, 132px);
+    align-items: start;
+    justify-content: stretch;
+    padding: clamp(70px, 7.5vh, 92px) var(--pad) clamp(56px, 6.5vh, 76px);
+  }
+
+  .thesis .eyebrow {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin: 0 0 clamp(24px, 2.8vh, 34px);
+  }
+
+  .thesis h2 {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    max-width: 810px;
+    margin: 0;
+    font-size: clamp(72px, 4.8vw, 92px);
+    line-height: .86;
+  }
+
+  .thesis__lead {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    max-width: 690px;
+    margin: clamp(88px, 10vh, 132px) 0 0;
+    font-size: clamp(34px, 2.35vw, 45px);
+    line-height: 1.03;
+  }
+
+  .thesis__equation {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    align-self: end;
+    margin-top: clamp(62px, 7vh, 92px);
+    font-size: clamp(62px, 4.3vw, 82px);
+  }
+
+  .thesis__equation b {
+    width: clamp(74px, 6.2vw, 118px);
+    height: 5px;
+  }
+
+  .thesis__equation b::after {
+    width: 16px;
+    height: 16px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+  }
+
+  /* 3 + 4. Tourist scene: separate the explanation and turn the caption into a quiet footnote. */
+  .spread-feature {
+    min-height: calc(100svh - 59px);
+    align-items: stretch;
+  }
+
+  .spread-feature figure {
+    position: relative;
+    align-self: stretch;
+    overflow: hidden;
+    border-right: 1px solid var(--line-d);
+  }
+
+  .spread-feature figure img {
+    height: 100%;
+    min-height: calc(100svh - 59px);
+    object-fit: cover;
+  }
+
+  .spread-feature > div {
+    min-height: calc(100svh - 59px);
+    padding: clamp(84px, 9vh, 112px) clamp(70px, 4.6vw, 90px) clamp(64px, 7vh, 88px) clamp(52px, 3.5vw, 68px);
+  }
+
+  .spread-feature h2 {
+    margin-bottom: 0;
+  }
+
+  .spread-feature > div > p:last-child {
+    max-width: 520px;
+    margin-top: clamp(68px, 8vh, 104px);
+    line-height: 1.08;
+  }
+
+  .spread-feature figcaption {
+    position: absolute;
+    z-index: 2;
+    left: clamp(22px, 2vw, 36px);
+    bottom: clamp(22px, 2.4vh, 34px);
+    width: 230px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: rgba(243, 241, 236, .72);
+    background: transparent;
+    font: 400 12px/1.22 var(--f);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* 5. Visual system: three clean rows, exactly one desktop viewport. */
+  .palette {
+    height: calc(100svh - 59px);
+    min-height: 760px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 34% 31% 35%;
+    overflow: hidden;
+  }
+
+  .palette > header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 100%;
+    min-height: 0;
+    justify-content: flex-start;
+    gap: clamp(16px, 2vh, 22px);
+    padding: clamp(30px, 4vh, 44px) var(--vs-x) clamp(22px, 3vh, 34px);
+    overflow: hidden;
+  }
+
+  .palette > header h2 {
+    width: min(1380px, 100%);
+    font-size: clamp(78px, 5vw, 96px);
+    line-height: .84;
+  }
+
+  .palette__row--gray,
+  .palette__row--red,
+  .palette__gold {
+    grid-row: 2;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .palette__row,
+  .palette__gold > div {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: auto 1fr auto;
+    gap: clamp(10px, 1.3vh, 16px);
+    padding: clamp(26px, 3.2vh, 38px) clamp(30px, 3vw, 50px);
+    overflow: hidden;
+  }
+
+  .palette__row h3,
+  .palette__gold h3 {
+    align-self: start;
+    font-size: clamp(38px, 2.5vw, 48px);
+    line-height: .92;
+  }
+
+  .palette__row p,
+  .palette__gold > div > p {
+    align-self: end;
+    max-width: 430px;
+    font-size: clamp(17px, 1.05vw, 20px);
+    line-height: 1.06;
+  }
+
+  .palette__row--type {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    height: 100%;
+    min-height: 0;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(60px, 6vw, 116px);
+    row-gap: clamp(20px, 2.5vh, 28px);
+    padding: clamp(28px, 3.5vh, 40px) var(--vs-x) clamp(30px, 3.8vh, 44px);
+    overflow: hidden;
+  }
+
+  .palette__row--type h3 {
+    align-self: start;
+    font-size: clamp(40px, 2.7vw, 52px);
+    line-height: .92;
+  }
+
+  .palette__row--type .palette__type-copy {
+    align-self: start;
+    gap: clamp(14px, 1.8vh, 20px);
+  }
+
+  .palette__row--type .palette__type-copy p {
+    max-width: 720px;
+    font-size: clamp(17px, 1.05vw, 20px);
+    line-height: 1.06;
+  }
+
+  .palette__row--type .palette__typeface-ref {
+    font-size: clamp(14px, .9vw, 17px);
+  }
+
+  /* 6. Slogan: make the black scene unmistakably larger. */
+  .palette + .slogan,
+  .slogan {
+    padding-top: 0;
+  }
+
+  .slogan header {
+    min-height: clamp(440px, 52vh, 520px);
+    padding: clamp(72px, 8vh, 96px) var(--pad) clamp(72px, 8vh, 98px);
+  }
+
+  .slogan__meta {
+    align-self: end;
+    padding-bottom: .2em;
+  }
+
+  /* 7. Prototype: more breathing room without letting the photo row dominate. */
+  .prototype {
+    min-height: calc(100svh - 59px);
+    padding-top: clamp(54px, 6vh, 72px);
+  }
+
+  .prototype__intro .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .prototype__intro h2 {
+    margin-bottom: clamp(34px, 4vh, 46px);
+  }
+
+  .prototype__lead p:first-child {
+    max-width: 900px;
+    line-height: 1.02;
+  }
+
+  .prototype__lead p:last-child {
+    align-self: end;
+    padding-bottom: .2em;
+    line-height: 1.1;
+  }
+
+  .prototype-photo {
+    margin-top: clamp(50px, 5.8vh, 66px);
+    border-top: 0;
+  }
+
+  .prototype-photo img {
+    height: clamp(190px, 24vh, 240px);
+  }
+
+  .prototype-photo figcaption {
+    min-height: 0;
+    display: block;
+    padding: 10px 14px 12px;
+    border: 0;
+    color: rgba(9, 9, 9, .72);
+    background: transparent;
+    font: 600 12px/1.18 var(--f);
+    text-transform: none;
+  }
+
+  /* 8. Ending: Pamela is pinned to the right edge of “ходила”. */
+  .ending {
+    min-height: calc(100svh - 59px);
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(72px, 6vw, 110px);
+    row-gap: clamp(42px, 4.8vh, 58px);
+    padding: clamp(110px, 11vh, 138px) var(--pad) clamp(90px, 9vh, 112px);
+  }
+
+  .ending blockquote {
+    width: max-content;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-template-rows: repeat(3, auto);
+    column-gap: 0;
+    margin: 0;
+    line-height: .82;
+  }
+
+  .ending__pamela {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .ending__walk-prefix {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ending__walk-word {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .ending__walk-dash {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .ending__last {
+    grid-column: 1 / 4;
+    grid-row: 3;
+  }
+
+  .ending__copy {
+    grid-column: 2;
+    max-width: 620px;
+    margin: 0 0 0 clamp(250px, 23vw, 440px);
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 900px) {
+  .ending blockquote {
+    display: block;
+    width: 100%;
+  }
+
+  .ending blockquote > span {
+    display: block;
+  }
+}
