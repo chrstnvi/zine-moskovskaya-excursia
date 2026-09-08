@@ -40,8 +40,7 @@ h2,
 .hero__lead,
 .large-copy,
 .thesis__lead,
-.prototype__lead p:first-child,
-.ending__copy {
+.prototype__lead p:first-child {
   font-size: var(--type-lead);
 }
 
@@ -62,7 +61,8 @@ h2,
 .palette__gold > div > p,
 .palette__row--type .palette__type-copy p,
 .prototype__lead p:last-child,
-.gallery-result__copy {
+.gallery-result__copy,
+.ending__copy {
   font-size: var(--type-body);
 }
 
@@ -94,10 +94,21 @@ h2,
   text-transform: uppercase;
 }
 
-/* Final statement mirrors the scale of the hero. */
+/* Final statement: fixed three-line headline, calmer body copy. */
+.ending blockquote {
+  max-width: none;
+  line-height: .82;
+}
+
+.ending blockquote span {
+  display: block;
+  white-space: nowrap;
+}
+
 .ending__copy {
-  max-width: 760px;
-  line-height: 1;
+  max-width: 620px;
+  font-size: var(--type-body);
+  line-height: 1.08;
 }
 
 /* 02 — Formula: give the copy air, then make the arrows real graphic signs. */
@@ -277,9 +288,16 @@ h2,
 
   .hero__lead,
   .thesis__lead,
-  .prototype__lead p:first-child,
-  .ending__copy {
+  .prototype__lead p:first-child {
     font-size: var(--type-lead);
+  }
+
+  .ending__copy {
+    font-size: var(--type-body);
+  }
+
+  .ending blockquote span {
+    white-space: normal;
   }
 
   .project-meta dd,
