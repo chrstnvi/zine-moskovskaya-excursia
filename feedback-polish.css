@@ -1,0 +1,190 @@
+/* Feedback pass: five-step type scale, stronger arrows, scroll-aware route markers. */
+:root {
+  --type-display: clamp(66px, 5.729vw, 110px);
+  --type-section: clamp(52px, 4vw, 76px);
+  --type-lead: clamp(32px, 2.292vw, 44px);
+  --type-body: clamp(15px, .9375vw, 18px);
+  --type-meta: clamp(12px, .7292vw, 14px);
+
+  /* Keep old tokens as aliases so the whole page snaps to one five-size system. */
+  --display: var(--type-display);
+  --chapter: var(--type-section);
+  --section: var(--type-section);
+  --item: var(--type-lead);
+  --lead: var(--type-lead);
+  --bodyl: var(--type-body);
+  --body: var(--type-body);
+  --meta: var(--type-meta);
+  --ui: var(--type-meta);
+}
+
+/* 01 — Typography: one family, five sizes, three useful weights. */
+body {
+  font-size: var(--type-body);
+}
+
+h2,
+.spread-feature h2,
+.prototype__intro h2,
+.gallery-result__title h2,
+.ending blockquote,
+.slogan h2 {
+  font-size: var(--type-section);
+}
+
+.hero h1,
+.palette > header h2 {
+  font-size: var(--type-display);
+}
+
+.hero__lead,
+.large-copy,
+.thesis__lead,
+.prototype__lead p:first-child {
+  font-size: var(--type-lead);
+}
+
+.brief__days h3,
+.route-map h3,
+.palette__row h3,
+.palette__gold h3,
+.palette__row--type h3 {
+  font-size: var(--type-lead);
+}
+
+.brief__days p,
+.opening__body > p:last-child,
+.analysis__note,
+.route-map li p,
+.spread-feature > div > p:last-child,
+.palette__row p,
+.palette__gold > div > p,
+.palette__row--type .palette__type-copy p,
+.prototype__lead p:last-child,
+.gallery-result__copy,
+.ending__copy {
+  font-size: var(--type-body);
+}
+
+.eyebrow,
+.project-meta dt,
+.topbar__mark,
+.topbar__nav,
+.route__word,
+.route__count,
+.slogan__meta dt,
+.footer__brand strong,
+.footer__workshop strong,
+.hero__visual figcaption,
+.spread-feature figcaption,
+.prototype-photo figcaption,
+.gallery-result__card figcaption {
+  font-size: var(--type-meta);
+}
+
+/* 02 — Formula arrows: they are signs, not hairline connectors. */
+.thesis__equation b {
+  height: 6px;
+  width: clamp(84px, 7vw, 134px);
+}
+
+.thesis__equation b::after {
+  width: 18px;
+  height: 18px;
+  border-top-width: 6px;
+  border-right-width: 6px;
+}
+
+/* 03 — Route: squares only, no timeline line. */
+.route-map ol {
+  row-gap: clamp(8px, .8vw, 16px);
+}
+
+.route-map li {
+  grid-template-columns: 56px minmax(270px, .75fr) minmax(320px, 1fr);
+  gap: 28px;
+}
+
+.route-map li > span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  align-self: start;
+  padding: 0;
+  color: var(--chalk);
+  background: var(--ink);
+  font: 700 var(--type-meta)/1 var(--f);
+  letter-spacing: .02em;
+  transition: background-color .22s ease, transform .22s ease;
+}
+
+.route-map li.is-active > span {
+  background: var(--red);
+  transform: scale(1.045);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --type-display: clamp(46px, 12vw, 58px);
+    --type-section: clamp(42px, 10.6vw, 50px);
+    --type-lead: clamp(24px, 6.5vw, 32px);
+    --type-body: 17px;
+    --type-meta: 12px;
+  }
+
+  .hero h1,
+  .palette > header h2 {
+    font-size: var(--type-display);
+  }
+
+  .analysis__copy h2,
+  .thesis h2,
+  .spread-feature h2,
+  .prototype__intro h2,
+  .gallery-result__title h2 {
+    font-size: var(--type-section);
+  }
+
+  .hero__lead,
+  .thesis__lead,
+  .prototype__lead p:first-child {
+    font-size: var(--type-lead);
+  }
+
+  .thesis__equation {
+    font-size: var(--type-section);
+  }
+
+  .thesis__equation b {
+    width: 64px;
+    height: 5px;
+  }
+
+  .thesis__equation b::after {
+    width: 15px;
+    height: 15px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+  }
+
+  .route-map li {
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+  }
+
+  .route-map li > span {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+  }
+
+  .route-map li p {
+    grid-column: 2;
+    font-size: var(--type-body);
+  }
+
+  .route-map h3 {
+    font-size: var(--type-lead);
+  }
+}
