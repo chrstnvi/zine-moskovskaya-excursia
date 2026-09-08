@@ -209,6 +209,47 @@ h2,
   .palette__row--type .palette__type-copy p {
     line-height: 1.03;
   }
+
+  /* 05 — Prototype: headline + both texts + photo row fit in one viewport. */
+  .prototype {
+    min-height: calc(100svh - 59px);
+    padding-top: clamp(42px, 5vh, 58px);
+  }
+
+  .prototype__intro .eyebrow {
+    grid-column: 1 / 5;
+    margin-bottom: 14px;
+  }
+
+  .prototype__intro h2 {
+    grid-column: 1 / 5;
+    max-width: 900px;
+    margin-bottom: clamp(22px, 2.4vh, 30px);
+    line-height: .82;
+  }
+
+  .prototype__lead p:first-child {
+    grid-column: 1 / 5;
+    max-width: 940px;
+    padding-right: clamp(34px, 4vw, 70px);
+    line-height: 1;
+  }
+
+  .prototype__lead p:last-child {
+    grid-column: 5 / 7;
+    max-width: 430px;
+    padding-left: clamp(18px, 2vw, 34px);
+    line-height: 1.06;
+  }
+
+  .prototype-photo {
+    margin-top: clamp(28px, 3.5vh, 40px);
+  }
+
+  .prototype-photo img {
+    height: clamp(220px, 29vh, 290px);
+    aspect-ratio: auto;
+  }
 }
 
 @media (max-width: 900px) {
