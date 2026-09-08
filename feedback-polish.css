@@ -1,12 +1,12 @@
 /* Feedback pass: five-step type scale, stronger arrows, scroll-aware route markers. */
 :root {
-  --type-display: clamp(66px, 5.729vw, 110px);
-  --type-section: clamp(52px, 4vw, 76px);
-  --type-lead: clamp(32px, 2.292vw, 44px);
-  --type-body: clamp(15px, .9375vw, 18px);
+  --type-display: clamp(72px, 5.729vw, 110px);
+  --type-section: clamp(64px, 5.208vw, 100px);
+  --type-lead: clamp(36px, 2.708vw, 52px);
+  --type-body: clamp(17px, 1.146vw, 22px);
   --type-meta: clamp(12px, .7292vw, 14px);
 
-  /* Keep old tokens as aliases so the whole page snaps to one five-size system. */
+  /* Five type sizes across the whole page. */
   --display: var(--type-display);
   --chapter: var(--type-section);
   --section: var(--type-section);
@@ -82,7 +82,11 @@ h2,
   font-size: var(--type-meta);
 }
 
-/* 02 — Formula arrows: they are signs, not hairline connectors. */
+/* 02 — Formula: give the copy air, then make the arrows real graphic signs. */
+.thesis__equation {
+  margin-top: clamp(120px, 11vw, 210px);
+}
+
 .thesis__equation b {
   height: 6px;
   width: clamp(84px, 7vw, 134px);
@@ -95,41 +99,41 @@ h2,
   border-right-width: 6px;
 }
 
-/* 03 — Route: squares only, no timeline line. */
+/* 03 — Route: same square language as the top-left brand marker. */
 .route-map ol {
   row-gap: clamp(8px, .8vw, 16px);
 }
 
 .route-map li {
-  grid-template-columns: 56px minmax(270px, .75fr) minmax(320px, 1fr);
+  grid-template-columns: 28px minmax(270px, .75fr) minmax(320px, 1fr);
   gap: 28px;
 }
 
 .route-map li > span {
-  width: 44px;
-  height: 44px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   align-self: start;
+  margin-top: .2em;
   padding: 0;
   color: var(--chalk);
   background: var(--ink);
   font: 700 var(--type-meta)/1 var(--f);
-  letter-spacing: .02em;
-  transition: background-color .22s ease, transform .22s ease;
+  letter-spacing: .01em;
+  transition: background-color .2s ease;
 }
 
 .route-map li.is-active > span {
   background: var(--red);
-  transform: scale(1.045);
 }
 
 @media (max-width: 900px) {
   :root {
-    --type-display: clamp(46px, 12vw, 58px);
-    --type-section: clamp(42px, 10.6vw, 50px);
-    --type-lead: clamp(24px, 6.5vw, 32px);
-    --type-body: 17px;
+    --type-display: clamp(48px, 12.5vw, 60px);
+    --type-section: clamp(46px, 11.5vw, 56px);
+    --type-lead: clamp(28px, 7vw, 34px);
+    --type-body: 18px;
     --type-meta: 12px;
   }
 
@@ -153,6 +157,7 @@ h2,
   }
 
   .thesis__equation {
+    margin-top: 92px;
     font-size: var(--type-section);
   }
 
@@ -169,13 +174,14 @@ h2,
   }
 
   .route-map li {
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 28px 1fr;
     gap: 14px;
   }
 
   .route-map li > span {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
+    margin-top: .15em;
     padding: 0;
   }
 
