@@ -27,20 +27,21 @@ h2,
 .spread-feature h2,
 .prototype__intro h2,
 .gallery-result__title h2,
-.ending blockquote,
 .slogan h2 {
   font-size: var(--type-section);
 }
 
 .hero h1,
-.palette > header h2 {
+.palette > header h2,
+.ending blockquote {
   font-size: var(--type-display);
 }
 
 .hero__lead,
 .large-copy,
 .thesis__lead,
-.prototype__lead p:first-child {
+.prototype__lead p:first-child,
+.ending__copy {
   font-size: var(--type-lead);
 }
 
@@ -61,8 +62,7 @@ h2,
 .palette__gold > div > p,
 .palette__row--type .palette__type-copy p,
 .prototype__lead p:last-child,
-.gallery-result__copy,
-.ending__copy {
+.gallery-result__copy {
   font-size: var(--type-body);
 }
 
@@ -80,6 +80,24 @@ h2,
 .prototype-photo figcaption,
 .gallery-result__card figcaption {
   font-size: var(--type-meta);
+}
+
+/* Tiny service copy: same 12 px role on hero metadata and slogan mechanics. */
+.project-meta dd,
+.slogan__meta dd {
+  font-size: 12px;
+  line-height: 1.08;
+}
+
+/* Typography sample is a label too. */
+.palette__row--type h3 {
+  text-transform: uppercase;
+}
+
+/* Final statement mirrors the scale of the hero. */
+.ending__copy {
+  max-width: 760px;
+  line-height: 1;
 }
 
 /* 02 — Formula: give the copy air, then make the arrows real graphic signs. */
@@ -138,7 +156,8 @@ h2,
   }
 
   .hero h1,
-  .palette > header h2 {
+  .palette > header h2,
+  .ending blockquote {
     font-size: var(--type-display);
   }
 
@@ -152,8 +171,14 @@ h2,
 
   .hero__lead,
   .thesis__lead,
-  .prototype__lead p:first-child {
+  .prototype__lead p:first-child,
+  .ending__copy {
     font-size: var(--type-lead);
+  }
+
+  .project-meta dd,
+  .slogan__meta dd {
+    font-size: 12px;
   }
 
   .thesis__equation {
