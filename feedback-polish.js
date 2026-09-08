@@ -41,3 +41,8 @@ function queueRouteMapUpdate() {
 updateRouteMapState();
 window.addEventListener('scroll', queueRouteMapUpdate, { passive: true });
 window.addEventListener('resize', queueRouteMapUpdate);
+
+const endingTitle = document.querySelector('.ending blockquote');
+if (endingTitle) {
+  endingTitle.innerHTML = '<span>Памела</span><span>по&nbsp;Москве ходила —</span><span>и&nbsp;читателю придётся</span>';
+}
