@@ -20,8 +20,16 @@
   top: calc(59px + clamp(24px, 3vw, 56px));
   left: var(--pad);
   margin: 0;
-  max-width: 320px;
-  font: 700 var(--ui)/1.1 var(--f);
+  max-width: none;
+  font-size: 0;
+  line-height: 0;
+  white-space: nowrap;
+}
+
+.poster-kicker::before {
+  content: "Экспериментальный зин · Campus DesignWorkout";
+  display: block;
+  font: 700 var(--ui)/1.05 var(--f);
   letter-spacing: .04em;
   text-transform: uppercase;
 }
@@ -50,7 +58,7 @@
   position: absolute;
   z-index: 2;
   top: 54%;
-  right: var(--pad);
+  right: calc(var(--pad) - 8vw);
   left: auto;
   width: min(58vw, 84vh);
   margin: 0;
@@ -305,7 +313,7 @@
 
 @media (max-width: 1100px) {
   .poster-cover {
-    right: var(--pad);
+    right: calc(var(--pad) - 7vw);
     left: auto;
     width: min(61vw, 74vh);
   }
@@ -330,6 +338,10 @@
 
   .poster-kicker {
     top: 88px;
+  }
+
+  .poster-kicker::before {
+    font-size: 11px;
   }
 
   .hero--poster h1 {
@@ -435,8 +447,8 @@
     min-height: 700px;
   }
 
-  .poster-kicker {
-    font-size: 11px;
+  .poster-kicker::before {
+    font-size: 10px;
   }
 
   .hero--poster h1 {
