@@ -27,7 +27,7 @@
 
 .hero--poster h1 {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 50%;
   left: var(--pad);
   right: var(--pad);
@@ -48,12 +48,12 @@
 .poster-cover {
   position: absolute;
   z-index: 2;
-  top: 53%;
-  left: 75%;
-  width: min(55vw, 82vh);
+  top: 54%;
+  left: 70%;
+  width: min(58vw, 84vh);
   margin: 0;
-  transform: translate(-50%, -50%) rotate(1.6deg);
-  filter: drop-shadow(0 28px 35px rgba(0, 0, 0, .2));
+  transform: translate(-50%, -50%) rotate(1.4deg);
+  filter: drop-shadow(0 28px 35px rgba(0, 0, 0, .18));
 }
 
 .poster-cover img {
@@ -303,8 +303,8 @@
 
 @media (max-width: 1100px) {
   .poster-cover {
-    left: 74%;
-    width: min(60vw, 72vh);
+    left: 70%;
+    width: min(61vw, 74vh);
   }
 
   .hero--poster h1 {
