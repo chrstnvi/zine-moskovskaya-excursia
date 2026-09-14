@@ -20,7 +20,8 @@
   top: calc(59px + clamp(24px, 3vw, 56px));
   left: var(--pad);
   margin: 0;
-  font: 700 var(--meta)/1.05 var(--f);
+  max-width: 320px;
+  font: 700 var(--ui)/1.1 var(--f);
   letter-spacing: .04em;
   text-transform: uppercase;
 }
@@ -49,10 +50,11 @@
   position: absolute;
   z-index: 2;
   top: 54%;
-  left: 70%;
+  right: var(--pad);
+  left: auto;
   width: min(58vw, 84vh);
   margin: 0;
-  transform: translate(-50%, -50%) rotate(1.4deg);
+  transform: translateY(-50%) rotate(1.4deg);
   filter: drop-shadow(0 28px 35px rgba(0, 0, 0, .18));
 }
 
@@ -68,11 +70,11 @@
 .poster-note {
   position: absolute;
   z-index: 4;
-  right: calc(var(--pad) + 10px);
+  right: var(--pad);
   bottom: clamp(24px, 3vw, 52px);
   max-width: 320px;
   margin: 0;
-  font: 700 var(--ui)/1.1 var(--f);
+  font: 700 var(--meta)/1.05 var(--f);
   letter-spacing: .04em;
   text-align: right;
   text-transform: uppercase;
@@ -303,7 +305,8 @@
 
 @media (max-width: 1100px) {
   .poster-cover {
-    left: 70%;
+    right: var(--pad);
+    left: auto;
     width: min(61vw, 74vh);
   }
 
@@ -339,6 +342,7 @@
 
   .poster-cover {
     top: 61%;
+    right: auto;
     left: 55%;
     width: min(82vw, 540px);
     transform: translate(-50%, -50%) rotate(1.4deg);
@@ -442,6 +446,7 @@
 
   .poster-cover {
     top: 57%;
+    right: auto;
     left: 54%;
     width: 90vw;
   }
