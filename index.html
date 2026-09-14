@@ -8,7 +8,7 @@
   <title>Московская экскурсия — зин</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
   <link rel="stylesheet" href="./styles.css?v=20260907-1928"/>
-  <link rel="stylesheet" href="./first-sections.css?v=20260913-01"/>
+  <link rel="stylesheet" href="./first-sections.css?v=20260914-02"/>
   <script src="./script.js?v=20260907-1910" defer></script>
 </head>
 <body>
@@ -34,60 +34,58 @@
   </aside>
 
   <main id="main">
-    <section class="hero chapter" id="case" data-step="01">
-      <div class="hero__copy">
-        <p class="eyebrow">Памела Трэверс → физический зин</p>
-        <h1><span>Московская</span><span>экскурсия</span></h1>
-        <p class="hero__lead">Текст, который пришлось читать руками.</p>
-        <dl class="project-meta">
-          <div><dt>Что это</dt><dd>Экспериментальный зин по «Московской экскурсии»</dd></div>
-          <div><dt>Формат</dt><dd>40 страниц · ручные механики</dd></div>
-          <div><dt>Срок</dt><dd>2 дня · Campus DesignWorkout</dd></div>
-        </dl>
-      </div>
-      <figure class="hero__visual">
+    <section class="hero hero--poster chapter" id="case" data-step="01">
+      <p class="poster-kicker">Памела Трэверс · Москва · 1934</p>
+      <h1><span>Московская</span><span>экскурсия</span></h1>
+      <figure class="poster-cover">
         <img src="./assets/01-cover.webp" width="1254" height="1254" alt="Квадратный серый зин с красным квадратом, датой 1934 и красной прошивкой"/>
-        <figcaption>Campus DesignWorkout · Do you read me? · June</figcaption>
+        <figcaption>Обложка зина</figcaption>
       </figure>
+      <p class="poster-arrow">↓ читать руками</p>
+      <p class="poster-note">Экспериментальный зин<br/>Campus DesignWorkout</p>
     </section>
 
-    <section class="brief reveal chapter" id="brief" data-step="02">
-      <div class="reveal__copy">
-        <p class="eyebrow">Сначала — сам объект</p>
-        <h2>Зин не просит просто листать. Он заставляет действовать.</h2>
-        <p class="reveal__lead">Потянуть длинную гармошку, заглянуть в щель, развернуть страницу, заметить, как «ОНИ» становятся всё ближе.</p>
-        <dl class="reveal__facts">
-          <div><dt>Основа</dt><dd>Текст задаёт последовательность жестов</dd></div>
-          <div><dt>Чтение</dt><dd>Взгляд + руки + физическое действие</dd></div>
-          <div><dt>Сборка</dt><dd>Бумага, прорези, клапаны и гармошки</dd></div>
-        </dl>
-      </div>
-      <figure class="reveal__visual">
+    <section class="brief object-stage chapter" id="brief" data-step="02">
+      <p class="object-stage__label">Сначала — сам объект</p>
+      <figure class="object-stage__visual">
         <img src="./assets/02-accordion.webp" alt="Зин с полностью раскрытой красной бумажной гармошкой" loading="eager"/>
-        <figcaption>Плакат выходит далеко за формат зина · один из разворотов</figcaption>
+        <figcaption>Разворот с длинной бумажной гармошкой</figcaption>
       </figure>
+      <div class="object-stage__note">
+        <strong>Здесь недостаточно листать. Нужно тянуть, искать, заглядывать и разворачивать.</strong>
+        <span>40 страниц · ручная сборка</span>
+      </div>
     </section>
 
-    <section class="opening chapter" id="reading" data-step="03">
-      <div class="opening__label">
-        <p class="eyebrow">Исходный материал</p>
-        <p class="opening__aside">Памела Трэверс<br/>«Московская экскурсия»<br/>1934</p>
+    <section class="opening source-stage chapter" id="reading" data-step="03">
+      <div class="source-stage__head">
+        <p class="eyebrow">Исходный материал — не сюжет, а ритм</p>
+        <p class="source-stage__book">Памела Трэверс<br/>«Московская экскурсия»<br/>1934</p>
       </div>
-      <div class="opening__body">
-        <h2>Я читала текст не как рассказ, а как последовательность команд, повторов и препятствий.</h2>
-        <p class="large-copy">Меня зацепило, что Памелу постоянно ведут, торопят, не пускают и заставляют искать другой путь. В самом тексте уже была хореография будущего зина.</p>
-        <p>Поэтому первым шагом стала почти лабораторная разметка: действия, интонации, повторы, странные слова и места, где фраза буквально просит превратиться в жест.</p>
+
+      <div class="source-stage__fragments" aria-label="Фрагменты текста, которые стали механиками зина">
+        <p class="source-fragment source-fragment--miles">миля за милей</p>
+        <p class="source-fragment source-fragment--go">Пойдёмте!</p>
+        <p class="source-fragment source-fragment--they">ОНИ</p>
+        <p class="source-fragment source-fragment--game">Игра — не забава,<br/>а подготовка к труду!</p>
       </div>
-      <div class="opening__source" aria-label="Источник цитат">
-        <strong>Источник цитат</strong>
-        <span>Русское издание — Лимбус Пресс · Издательство К. Тублина · 2016</span>
-        <span>Перевод и комментарии — Ольга Мяэотс · <a href="https://limbuspress.ru/product/pamela-trevers-moskovskaya-ekskursiya/" target="_blank" rel="noreferrer">Книга ↗</a></span>
+
+      <div class="source-stage__footer">
+        <p class="source-stage__takeaway">В тексте уже были команды, повторы, запреты и движения. Их оставалось только перевести из слов в физические жесты.</p>
+        <p class="source-stage__source">Русское издание — Лимбус Пресс · 2016<br/>Перевод и комментарии — Ольга Мяэотс · <a href="https://limbuspress.ru/product/pamela-trevers-moskovskaya-ekskursiya/" target="_blank" rel="noreferrer">книга ↗</a></p>
       </div>
+    </section>
+
+    <section class="thesis thesis--finding chapter" id="idea" data-step="04">
+      <p class="eyebrow">Вот что нашлось</p>
+      <h2>Текст сам диктует, что сделать с ним руками.</h2>
+      <p class="thesis__lead">Памелу ведут, торопят и не пускают. Я отдала эту роль самому зину: теперь уже он командует читателем.</p>
+      <div class="thesis__equation" aria-label="Формула концепции"><span>Текст</span><b>→</b><span>Жест</span><b>→</b><span>Смысл</span></div>
     </section>
 
     <section class="analysis" aria-labelledby="analysis-title">
       <div class="analysis__copy">
-        <p class="eyebrow">Препарирование</p>
+        <p class="eyebrow">Как я до этого докопалась</p>
         <h2 id="analysis-title">Пять проходов по одному тексту</h2>
         <p class="analysis__note" id="analysis-note">Прочитать, подумать, понять</p>
         <div class="analysis__tabs" role="tablist" aria-label="Слои анализа текста">
@@ -104,13 +102,6 @@
           <span id="analysis-index">01</span><span class="analysis__counter-total"> / 05</span><span class="analysis__counter-action">ЧИТАТЬ ВЕСЬ ИСХОДНИК ↗</span>
         </button>
       </div>
-    </section>
-
-    <section class="thesis chapter" id="idea" data-step="04">
-      <p class="eyebrow">Найденная идея</p>
-      <h2>Ритм текста стал сценарием для зина</h2>
-      <p class="thesis__lead">Памелу постоянно направляют, торопят и не пускают туда, куда она хочет попасть. Зин перенимает роль гида и начинает управлять руками читателя</p>
-      <div class="thesis__equation" aria-label="Формула концепции"><span>Текст</span><b>→</b><span>Жест</span><b>→</b><span>Смысл</span></div>
     </section>
 
     <section class="route-map" aria-labelledby="route-title">
